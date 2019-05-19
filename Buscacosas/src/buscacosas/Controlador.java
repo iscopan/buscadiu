@@ -16,13 +16,18 @@ import javax.swing.*;
 public class Controlador extends JFrame{
     
     private Modelo modelo = new Modelo();
+    
+    private InfoMision infoMision = new InfoMision(modelo);
+    private ElegirMision elegirMision = new ElegirMision(modelo);
+    
     private JPanel panelInicio;
     private JPanel panelJuego;
     private JPanel panelAyuda;
     private JPanel panelRanking;
     
     public Controlador(){
-        // modelo.addObserver(x);
+        
+        modelo.addObserver(infoMision);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -38,8 +43,7 @@ public class Controlador extends JFrame{
         gb.fill = GridBagConstraints.BOTH;
         
         gb.gridwidth = 4;
-        JLabel chooseMissionMessage = new JLabel(modelo.getChooseMissionMessage());
-        agrega(chooseMissionMessage, gb, panelInicio, 0, 0);
+        agrega(elegirMision, gb, panelInicio, 0, 0);
         
         gb.gridwidth = 1;
         JButton mision1 = new JButton("Misión 1");
@@ -67,8 +71,7 @@ public class Controlador extends JFrame{
         
         gb.gridwidth = 4;
         gb.gridheight = 2;
-        JLabel missionInfo = new JLabel(modelo.getMissionInfo());
-        agrega(missionInfo, gb, panelInicio, 0, 2);
+        agrega(infoMision, gb, panelInicio, 0, 2);
         
         gb.gridwidth = 1;
         JButton play = new JButton("Jugar");
@@ -89,7 +92,6 @@ public class Controlador extends JFrame{
         agrega(help, gb, panelInicio, 4, 4);
         
         getContentPane().removeAll();
-        setLayout(new FlowLayout());
         add(panelInicio);
         pack();
         
@@ -135,7 +137,6 @@ public class Controlador extends JFrame{
         panelJuego.add(panelJugable, BorderLayout.CENTER);
         
         getContentPane().removeAll();
-        setLayout(new FlowLayout());
         add(panelJuego);
         pack();
         
