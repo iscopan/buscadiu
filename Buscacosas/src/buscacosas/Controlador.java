@@ -85,10 +85,20 @@ public class Controlador extends JFrame{
         gb.gridwidth = 4;
         gb.gridheight = 1;
         JButton ranking = new JButton("Ranking");
+        ranking.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                generarPanelRanking();
+            }
+        });
         agrega(ranking, gb, panelInicio, 0, 4);
         
         gb.gridwidth = 1;
         JButton help = new JButton("?");
+        help.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                generarPanelAyuda();
+            }
+        });
         agrega(help, gb, panelInicio, 4, 4);
         
         getContentPane().removeAll();
@@ -144,10 +154,41 @@ public class Controlador extends JFrame{
     
     public void generarPanelAyuda(){
         
+        panelAyuda = new JPanel(new BorderLayout());
+        
+        JButton volver = new JButton("Volver");
+        volver.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                generarPanelInicio();
+            }
+        });
+        panelAyuda.add(volver, BorderLayout.NORTH);
+        
+        JPanel panelMuestraAyuda = new JPanel(new GridLayout(modelo.getX(), modelo.getY()));
+        panelAyuda.add(panelMuestraAyuda, BorderLayout.CENTER);
+        
+        getContentPane().removeAll();
+        add(panelAyuda);
+        pack();
     }
     
     public void generarPanelRanking(){
+        panelRanking = new JPanel(new BorderLayout());
         
+        JButton volver = new JButton("Volver");
+        volver.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                generarPanelInicio();
+            }
+        });
+        panelRanking.add(volver, BorderLayout.NORTH);
+        
+        JPanel panelMuestraRanking = new JPanel(new GridLayout(modelo.getX(), modelo.getY()));
+        panelRanking.add(panelMuestraRanking, BorderLayout.CENTER);
+        
+        getContentPane().removeAll();
+        add(panelRanking);
+        pack();
     }
     
     private void agrega(Component c, GridBagConstraints gb, JPanel v, int x, int y){
