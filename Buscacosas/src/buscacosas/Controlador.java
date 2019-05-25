@@ -164,8 +164,7 @@ public class Controlador extends JFrame{
         });
         panelAyuda.add(volver, BorderLayout.NORTH);
         
-        JPanel panelMuestraAyuda = new JPanel(new GridLayout(modelo.getX(), modelo.getY()));
-        panelAyuda.add(panelMuestraAyuda, BorderLayout.CENTER);
+        
         
         getContentPane().removeAll();
         add(panelAyuda);
@@ -175,16 +174,43 @@ public class Controlador extends JFrame{
     public void generarPanelRanking(){
         panelRanking = new JPanel(new BorderLayout());
         
-        JButton volver = new JButton("Volver");
+        JPanel cabecera = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        
+        JButton volver = new JButton("<--");
+        cabecera.add(volver);
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelInicio();
             }
         });
-        panelRanking.add(volver, BorderLayout.NORTH);
         
-        JPanel panelMuestraRanking = new JPanel(new GridLayout(modelo.getX(), modelo.getY()));
+        JLabel leaderBoard = new JLabel("LEADERBOARD");
+        cabecera.add(leaderBoard);
+        
+        JPanel panelMuestraRanking = new JPanel(new FlowLayout());
+        JLabel listaRanking = new JLabel();
+        listaRanking.setText("Aqui van los resultados del ranking");
+        panelMuestraRanking.add(listaRanking);
+        
+        
+        JPanel panelMuestraMision = new JPanel();
+        Box caja = Box.createVerticalBox();
+        JLabel mision = new JLabel("MISION:");
+        JLabel nombreMision = new JLabel("_________");
+        JButton imagen = new JButton("IMAGEN DE LA MISON");
+        caja.add(mision);
+        caja.add(caja.createVerticalGlue());
+        caja.add(nombreMision);
+        caja.add(caja.createVerticalGlue());
+        caja.add(imagen);
+        panelMuestraMision.add(caja);
+        
+        
+        panelRanking.add(cabecera, BorderLayout.NORTH);
+        panelRanking.add(panelMuestraMision, BorderLayout.EAST);
         panelRanking.add(panelMuestraRanking, BorderLayout.CENTER);
+        
+        
         
         getContentPane().removeAll();
         add(panelRanking);
