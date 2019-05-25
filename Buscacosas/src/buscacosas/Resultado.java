@@ -9,9 +9,18 @@ package buscacosas;
  *
  * @author GCM
  */
-public class Resultados {
-    private String nommbre = new String();
+public class Resultado{
+    private String nommbre;
     private int segundos;
+    
+    public Resultado(){
+        
+    }
+    
+    public Resultado(String nombre, int segundos){
+        this.nommbre = nombre;
+        this.segundos = segundos;
+    }
     
     public String getNombre(){
         return nommbre;

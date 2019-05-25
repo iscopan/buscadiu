@@ -13,7 +13,22 @@ import java.util.*;
  */
 public class Modelo extends Observable{
     
-    // ranking
+    private Resultado[] ranking;
+    
+    public Modelo(){
+        ranking = new Resultado[10];
+        ranking[0] = new Resultado("CEN", 10);
+        ranking[1] = new Resultado("JUA", 20);
+        ranking[2] = new Resultado("ISC", 30);
+        ranking[3] = new Resultado("MAN", 40);
+        ranking[4] = new Resultado("SAM", 50);
+        ranking[5] = new Resultado("PAB", 60);
+        ranking[6] = new Resultado("ISM", 70);
+        ranking[7] = new Resultado("KAL", 80);
+        ranking[8] = new Resultado("ROC", 90);
+        ranking[9] = new Resultado("---", 100);
+    }
+    
     // idiomas querida (array + elegido)
     // misiones (array + elegida)
     
@@ -40,6 +55,28 @@ public class Modelo extends Observable{
     
     public int getNumMinas(){
         return 8;
+    }
+    
+    public String getRanking(int pos){
+        String puntos;
+        puntos = ranking[pos].getNombre() + " ---- " + ranking[pos].getSegundos();
+        return puntos;
+    }
+    
+    public void actualizarRanking(String nombre, int tiempo){
+        for(int i = 0; i < 10; i++ ){
+            if(tiempo < ranking[i].getSegundos()){
+                
+                for(int j = 8; j > i; j-- ){
+                    ranking[j].setNombre(ranking[j-1].getNombre());
+                    ranking[j].setSegundos(ranking[j-1].getSegundos());
+                }
+                ranking[i].setNombre(nombre);
+                ranking[i].setSegundos(tiempo);
+                break;
+            }
+        }
+        notificarObservadores();
     }
     
 }

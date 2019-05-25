@@ -19,15 +19,19 @@ public class Controlador extends JFrame{
     
     private InfoMision infoMision = new InfoMision(modelo);
     private ElegirMision elegirMision = new ElegirMision(modelo);
+    private Ranking verRanking = new Ranking(modelo);
     
     private JPanel panelInicio;
     private JPanel panelJuego;
     private JPanel panelAyuda;
     private JPanel panelRanking;
     
+    private int tiempo = 25;
+    
     public Controlador(){
         
         modelo.addObserver(infoMision);
+        modelo.addObserver(verRanking);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -181,17 +185,12 @@ public class Controlador extends JFrame{
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelInicio();
+                modelo.actualizarRanking("LLL", tiempo);
             }
         });
         
-        JLabel leaderBoard = new JLabel("LEADERBOARD");
-        cabecera.add(leaderBoard);
-        
-        JPanel panelMuestraRanking = new JPanel(new FlowLayout());
-        JLabel listaRanking = new JLabel();
-        listaRanking.setText("Aqui van los resultados del ranking");
-        panelMuestraRanking.add(listaRanking);
-        
+       JLabel leaderBoard = new JLabel("LEADERBOARD");
+       cabecera.add(leaderBoard);
         
         JPanel panelMuestraMision = new JPanel();
         Box caja = Box.createVerticalBox();
@@ -208,7 +207,7 @@ public class Controlador extends JFrame{
         
         panelRanking.add(cabecera, BorderLayout.NORTH);
         panelRanking.add(panelMuestraMision, BorderLayout.EAST);
-        panelRanking.add(panelMuestraRanking, BorderLayout.CENTER);
+        panelRanking.add(verRanking, BorderLayout.CENTER);
         
         
         
