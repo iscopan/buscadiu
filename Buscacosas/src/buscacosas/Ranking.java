@@ -29,6 +29,7 @@ public class Ranking extends JPanel implements Observer{
     private JLabel pos7 = new JLabel();
     private JLabel pos8 = new JLabel();
     private JLabel pos9 = new JLabel();
+    private JLabel posN = new JLabel();
     
     public Ranking(Modelo modelo){
         this.modelo = modelo;
@@ -44,6 +45,7 @@ public class Ranking extends JPanel implements Observer{
         pos7.setText("7º: " + modelo.getRanking(6) + "seg.");
         pos8.setText("8º: " + modelo.getRanking(7) + "seg.");
         pos9.setText("9º: " + modelo.getRanking(8) + "seg.");
+        posN.setText("");
         
         topDiez.add(pos1);
         topDiez.add(topDiez.createVerticalGlue());
@@ -63,6 +65,7 @@ public class Ranking extends JPanel implements Observer{
         topDiez.add(topDiez.createVerticalGlue());
         topDiez.add(pos9);
         topDiez.add(topDiez.createVerticalGlue());
+        topDiez.add(posN);
         add(topDiez);
         
     }
@@ -77,6 +80,11 @@ public class Ranking extends JPanel implements Observer{
         pos7.setText("7º: " + modelo.getRanking(6) + "seg.");
         pos8.setText("8º: " + modelo.getRanking(7) + "seg.");
         pos9.setText("9º: " + modelo.getRanking(8) + "seg.");
+        if(!modelo.getRanking(9).equals("")){
+            posN.setText("N : " + modelo.getRanking(9) + "seg.");
+        }else{
+            posN.setText("");
+        }
     }
     
 }

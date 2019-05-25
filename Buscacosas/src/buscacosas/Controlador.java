@@ -26,7 +26,7 @@ public class Controlador extends JFrame{
     private JPanel panelAyuda;
     private JPanel panelRanking;
     
-    private int tiempo = 25;
+    private int tiempo = 83;
     
     public Controlador(){
         
@@ -136,6 +136,8 @@ public class Controlador extends JFrame{
                         JButton c = (JButton) e.getSource();
                         switch(e.getButton()){
                             case MouseEvent.BUTTON1:
+                                modelo.actualizarRanking("LLL", tiempo);
+                                generarPanelRanking();
                                 break;
                             case MouseEvent.BUTTON3:
                                 break;
@@ -184,8 +186,8 @@ public class Controlador extends JFrame{
         cabecera.add(volver);
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                modelo.actualizarRanking();
                 generarPanelInicio();
-                modelo.actualizarRanking("LLL", tiempo);
             }
         });
         
@@ -203,7 +205,6 @@ public class Controlador extends JFrame{
         caja.add(caja.createVerticalGlue());
         caja.add(imagen);
         panelMuestraMision.add(caja);
-        
         
         panelRanking.add(cabecera, BorderLayout.NORTH);
         panelRanking.add(panelMuestraMision, BorderLayout.EAST);

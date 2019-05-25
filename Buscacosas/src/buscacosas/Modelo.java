@@ -26,7 +26,6 @@ public class Modelo extends Observable{
         ranking[6] = new Resultado("ISM", 70);
         ranking[7] = new Resultado("KAL", 80);
         ranking[8] = new Resultado("ROC", 90);
-        ranking[9] = new Resultado("---", 100);
     }
     
     // idiomas querida (array + elegido)
@@ -58,13 +57,16 @@ public class Modelo extends Observable{
     }
     
     public String getRanking(int pos){
-        String puntos;
-        puntos = ranking[pos].getNombre() + " ---- " + ranking[pos].getSegundos();
+        String puntos = "";
+        if(ranking[pos] != null){
+            puntos = ranking[pos].getNombre() + " ---- " + ranking[pos].getSegundos();
+        }
         return puntos;
     }
     
     public void actualizarRanking(String nombre, int tiempo){
-        for(int i = 0; i < 10; i++ ){
+        boolean incluido = false;
+        for(int i = 0; i < 9; i++ ){
             if(tiempo < ranking[i].getSegundos()){
                 
                 for(int j = 8; j > i; j-- ){
@@ -73,10 +75,18 @@ public class Modelo extends Observable{
                 }
                 ranking[i].setNombre(nombre);
                 ranking[i].setSegundos(tiempo);
+                incluido = true;
                 break;
             }
+        }
+        if(incluido == false){
+            ranking[9] = new Resultado(nombre, tiempo);
         }
         notificarObservadores();
     }
     
+    public void actualizarRanking(){
+        ranking[9] = null;
+        notificarObservadores();
+    }
 }
