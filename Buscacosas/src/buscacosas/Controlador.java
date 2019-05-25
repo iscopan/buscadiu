@@ -210,8 +210,6 @@ public class Controlador extends JFrame{
         panelRanking.add(panelMuestraMision, BorderLayout.EAST);
         panelRanking.add(verRanking, BorderLayout.CENTER);
         
-        
-        
         getContentPane().removeAll();
         add(panelRanking);
         pack();

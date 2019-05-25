@@ -56,12 +56,8 @@ public class Modelo extends Observable{
         return 8;
     }
     
-    public String getRanking(int pos){
-        String puntos = "";
-        if(ranking[pos] != null){
-            puntos = ranking[pos].getNombre() + " ---- " + ranking[pos].getSegundos();
-        }
-        return puntos;
+    public Resultado getRanking(int pos){
+        return ranking[pos];
     }
     
     public void actualizarRanking(String nombre, int tiempo){
