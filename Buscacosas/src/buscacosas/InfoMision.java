@@ -19,12 +19,12 @@ public class InfoMision extends JPanel implements Observer{
     
     public InfoMision(Modelo modelo){
         this.modelo = modelo;
-        info = new JLabel("Info de la misión.");
+        info = new JLabel(this.modelo.getIdioma().getInfoMision1());
         add(info);
     }
     
     public void update(Observable o, Object arg){
-        info.setText("Aquí se tiene que referenciar la info de la misión");
+        info.setText(this.modelo.getIdioma().getInfoMision1());
     }
     
 }

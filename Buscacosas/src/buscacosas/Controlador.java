@@ -28,12 +28,13 @@ public class Controlador extends JFrame{
     public Controlador(){
         
         modelo.addObserver(infoMision);
+        modelo.addObserver(elegirMision);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setVisible(true);
         generarPanelInicio();
-        
+            
     }
     
     public void generarPanelInicio(){
@@ -60,7 +61,17 @@ public class Controlador extends JFrame{
         
         JPanel panelIdiomas = new JPanel();
         JButton esp = new JButton("Español");
+        esp.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                modelo.setIdiomaEspannol();
+            }
+        });
         JButton eng = new JButton("English");
+        eng.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                modelo.setIdiomaIngles();
+            }
+        });
         Box b = Box.createVerticalBox();
         b.add(esp);
         b.add(b.createVerticalGlue());

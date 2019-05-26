@@ -13,9 +13,14 @@ import java.util.*;
  */
 public class Modelo extends Observable{
     
+    private Idioma idioma;
     // ranking
     // idiomas querida (array + elegido)
     // misiones (array + elegida)
+    
+    public Modelo(){
+        setIdiomaEspannol();
+    }
     
     public void notificarObservadores(){
         setChanged();
@@ -42,4 +47,17 @@ public class Modelo extends Observable{
         return 8;
     }
     
+    public void setIdiomaEspannol(){  
+        idioma = Idioma.espannol();
+        notificarObservadores();
+    }
+    
+    public void setIdiomaIngles(){
+        idioma = Idioma.ingles();
+        notificarObservadores();
+    }
+    
+    public Idioma getIdioma(){
+        return idioma;
+    }
 }
