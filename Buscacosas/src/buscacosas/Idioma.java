@@ -7,7 +7,7 @@ package buscacosas;
 
 /**
  *
- * @author GCM
+ * @author Juan Blanco
  */
 public class Idioma {
     private String infoMision1;
