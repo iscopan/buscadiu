@@ -26,7 +26,7 @@ public class Controlador extends JFrame{
     private JPanel panelAyuda;
     private JPanel panelRanking;
     
-    private int tiempo = 83;
+    private int tiempo = 21;
     
     public Controlador(){
         

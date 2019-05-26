@@ -5,11 +5,9 @@
  */
 package buscacosas;
 
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.Observable;
 import java.util.Observer;
-import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
