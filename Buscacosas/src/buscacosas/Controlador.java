@@ -32,6 +32,7 @@ public class Controlador extends JFrame{
         
         modelo.addObserver(infoMision);
         modelo.addObserver(verRanking);
+        modelo.addObserver(elegirMision);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -64,7 +65,17 @@ public class Controlador extends JFrame{
         
         JPanel panelIdiomas = new JPanel();
         JButton esp = new JButton("Español");
+        esp.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                modelo.setIdiomaEspannol();
+            }
+        });
         JButton eng = new JButton("English");
+        eng.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                modelo.setIdiomaIngles();
+            }
+        });
         Box b = Box.createVerticalBox();
         b.add(esp);
         b.add(b.createVerticalGlue());
@@ -170,7 +181,8 @@ public class Controlador extends JFrame{
         });
         panelAyuda.add(volver, BorderLayout.NORTH);
         
-        
+        JPanel panelMuestraAyuda = new JPanel(new GridLayout(modelo.getX(), modelo.getY()));
+        panelAyuda.add(panelMuestraAyuda, BorderLayout.CENTER);
         
         getContentPane().removeAll();
         add(panelAyuda);
