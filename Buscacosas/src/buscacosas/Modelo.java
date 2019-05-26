@@ -13,14 +13,25 @@ import java.util.*;
  */
 public class Modelo extends Observable{
     
+    private Resultado[] ranking;
     private Idioma idioma;
-    // ranking
-    // idiomas querida (array + elegido)
-    // misiones (array + elegida)
     
     public Modelo(){
         setIdiomaEspannol();
+        ranking = new Resultado[10];
+        ranking[0] = new Resultado("CEN", 10);
+        ranking[1] = new Resultado("JUA", 20);
+        ranking[2] = new Resultado("ISC", 30);
+        ranking[3] = new Resultado("MAN", 40);
+        ranking[4] = new Resultado("SAM", 50);
+        ranking[5] = new Resultado("PAB", 60);
+        ranking[6] = new Resultado("ISM", 70);
+        ranking[7] = new Resultado("KAL", 80);
+        ranking[8] = new Resultado("ROC", 90);
     }
+    
+    // idiomas querida (array + elegido)
+    // misiones (array + elegida)
     
     public void notificarObservadores(){
         setChanged();
@@ -45,6 +56,36 @@ public class Modelo extends Observable{
     
     public int getNumMinas(){
         return 8;
+    }
+    
+    public Resultado getRanking(int pos){
+        return ranking[pos];
+    }
+    
+    public void actualizarRanking(String nombre, int tiempo){
+        boolean incluido = false;
+        for(int i = 0; i < 9; i++ ){
+            if(tiempo < ranking[i].getSegundos()){
+                
+                for(int j = 8; j > i; j-- ){
+                    ranking[j].setNombre(ranking[j-1].getNombre());
+                    ranking[j].setSegundos(ranking[j-1].getSegundos());
+                }
+                ranking[i].setNombre(nombre);
+                ranking[i].setSegundos(tiempo);
+                incluido = true;
+                break;
+            }
+        }
+        if(incluido == false){
+            ranking[9] = new Resultado(nombre, tiempo);
+        }
+        notificarObservadores();
+    }
+    
+    public void actualizarRanking(){
+        ranking[9] = null;
+        notificarObservadores();
     }
     
     public void setIdiomaEspannol(){  

@@ -19,22 +19,26 @@ public class Controlador extends JFrame{
     
     private InfoMision infoMision = new InfoMision(modelo);
     private ElegirMision elegirMision = new ElegirMision(modelo);
+    private Ranking verRanking = new Ranking(modelo);
     
     private JPanel panelInicio;
     private JPanel panelJuego;
     private JPanel panelAyuda;
     private JPanel panelRanking;
     
+    private int tiempo = 21;
+    
     public Controlador(){
         
         modelo.addObserver(infoMision);
+        modelo.addObserver(verRanking);
         modelo.addObserver(elegirMision);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setVisible(true);
         generarPanelInicio();
-            
+        
     }
     
     public void generarPanelInicio(){
@@ -143,6 +147,8 @@ public class Controlador extends JFrame{
                         JButton c = (JButton) e.getSource();
                         switch(e.getButton()){
                             case MouseEvent.BUTTON1:
+                                modelo.actualizarRanking("LLL", tiempo);
+                                generarPanelRanking();
                                 break;
                             case MouseEvent.BUTTON3:
                                 break;
@@ -186,16 +192,35 @@ public class Controlador extends JFrame{
     public void generarPanelRanking(){
         panelRanking = new JPanel(new BorderLayout());
         
-        JButton volver = new JButton("Volver");
+        JPanel cabecera = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        
+        JButton volver = new JButton("<--");
+        cabecera.add(volver);
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                modelo.actualizarRanking();
                 generarPanelInicio();
             }
         });
-        panelRanking.add(volver, BorderLayout.NORTH);
         
-        JPanel panelMuestraRanking = new JPanel(new GridLayout(modelo.getX(), modelo.getY()));
-        panelRanking.add(panelMuestraRanking, BorderLayout.CENTER);
+       JLabel leaderBoard = new JLabel("LEADERBOARD");
+       cabecera.add(leaderBoard);
+        
+        JPanel panelMuestraMision = new JPanel();
+        Box caja = Box.createVerticalBox();
+        JLabel mision = new JLabel("MISION:");
+        JLabel nombreMision = new JLabel("_________");
+        JButton imagen = new JButton("IMAGEN DE LA MISON");
+        caja.add(mision);
+        caja.add(caja.createVerticalGlue());
+        caja.add(nombreMision);
+        caja.add(caja.createVerticalGlue());
+        caja.add(imagen);
+        panelMuestraMision.add(caja);
+        
+        panelRanking.add(cabecera, BorderLayout.NORTH);
+        panelRanking.add(panelMuestraMision, BorderLayout.EAST);
+        panelRanking.add(verRanking, BorderLayout.CENTER);
         
         getContentPane().removeAll();
         add(panelRanking);

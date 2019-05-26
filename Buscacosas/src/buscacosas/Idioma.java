@@ -1,12 +1,15 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package buscacosas;
 
 /**
  *
- * @author Juan
+ * @author Juan Blanco
  */
 public class Idioma {
-    
     private String infoMision1;
     private String infoMision2;
     private String infoMision3;
@@ -214,10 +217,5 @@ public class Idioma {
     public String getAceptar() {
         return aceptar;
     }
-    
-    
-    
-    
-    
-    
+
 }
