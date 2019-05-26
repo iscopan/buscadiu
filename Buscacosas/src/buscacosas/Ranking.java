@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author GCM
+ * @author Guillermo
  */
 public class Ranking extends JPanel implements Observer{
 
