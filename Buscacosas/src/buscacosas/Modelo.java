@@ -14,8 +14,10 @@ import java.util.*;
 public class Modelo extends Observable{
     
     private Resultado[] ranking;
+    private Idioma idioma;
     
     public Modelo(){
+        setIdiomaEspannol();
         ranking = new Resultado[10];
         ranking[0] = new Resultado("CEN", 10);
         ranking[1] = new Resultado("JUA", 20);
@@ -84,5 +86,19 @@ public class Modelo extends Observable{
     public void actualizarRanking(){
         ranking[9] = null;
         notificarObservadores();
+    }
+    
+    public void setIdiomaEspannol(){  
+        idioma = Idioma.espannol();
+        notificarObservadores();
+    }
+    
+    public void setIdiomaIngles(){
+        idioma = Idioma.ingles();
+        notificarObservadores();
+    }
+    
+    public Idioma getIdioma(){
+        return idioma;
     }
 }
