@@ -19,12 +19,12 @@ public class ElegirMision extends JPanel implements Observer{
     
     public ElegirMision(Modelo modelo){
         this.modelo = modelo;
-        texto = new JLabel("Elige tu misión:");
+        texto = new JLabel(this.modelo.getIdioma().getEligeMision());
         add(texto);
     }
     
     public void update(Observable o, Object arg){
-        texto.setText("Elige tu misión:"); //pero en el idioma que sea
+        texto.setText(modelo.getIdioma().getEligeMision()); 
     }
     
 }
