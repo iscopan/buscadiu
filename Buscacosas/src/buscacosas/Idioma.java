@@ -44,8 +44,15 @@ public class Idioma {
         idioma.setNombreMision3("dx");
         idioma.setNombreMision4("dx");
         idioma.setEligeMision("xd");
-        idioma.setComoJugar("xd");
-        idioma.setCreditos("xd");
+        idioma.setComoJugar("xd\nlol");
+        idioma.setCreditos("\tCREDITOS \n"
+                + "----------------------\n"
+                + "Guillermo J. Centeno\n"
+                + "Francisco de la Puente\n"
+                + "Juan Blanco\n"
+                + "Samuel Encinas\n"
+                + "Imael Plaza\n"
+                + "Pablo Gil");
         idioma.setTextoConfirmacion("xd");
         idioma.setSi("xd");
         idioma.setNo("xd");
@@ -70,7 +77,14 @@ public class Idioma {
         idioma.setNombreMision4("Theresa May");
         idioma.setEligeMision("Theresa May");
         idioma.setComoJugar("Theresa May");
-        idioma.setCreditos("Theresa May");
+        idioma.setCreditos("\tCREDITS \n"
+                + "----------------------\n"
+                + "Guillermo J. Centeno\n"
+                + "Francisco de la Puente\n"
+                + "Juan Blanco\n"
+                + "Samuel Encinas\n"
+                + "Imael Plaza\n"
+                + "Pablo Gil");
         idioma.setTextoConfirmacion("Theresa May");
         idioma.setSi("Theresa May");
         idioma.setNo("Theresa May");

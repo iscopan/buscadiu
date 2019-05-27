@@ -20,6 +20,7 @@ public class Controlador extends JFrame{
     private InfoMision infoMision = new InfoMision(modelo);
     private ElegirMision elegirMision = new ElegirMision(modelo);
     private Ranking verRanking = new Ranking(modelo);
+    private TextoAyuda verAyuda = new TextoAyuda(modelo);
     
     private JPanel panelInicio;
     private JPanel panelJuego;
@@ -33,6 +34,7 @@ public class Controlador extends JFrame{
         modelo.addObserver(infoMision);
         modelo.addObserver(verRanking);
         modelo.addObserver(elegirMision);
+        modelo.addObserver(verAyuda);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -173,16 +175,15 @@ public class Controlador extends JFrame{
         
         panelAyuda = new JPanel(new BorderLayout());
         
+        panelAyuda.add(verAyuda, BorderLayout.CENTER);
+        
         JButton volver = new JButton("Volver");
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelInicio();
             }
         });
-        panelAyuda.add(volver, BorderLayout.NORTH);
-        
-        JPanel panelMuestraAyuda = new JPanel(new GridLayout(modelo.getX(), modelo.getY()));
-        panelAyuda.add(panelMuestraAyuda, BorderLayout.CENTER);
+        panelAyuda.add(volver, BorderLayout.SOUTH);
         
         getContentPane().removeAll();
         add(panelAyuda);
