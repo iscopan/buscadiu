@@ -24,16 +24,12 @@ public class TextoAyuda extends JPanel implements Observer{
     public TextoAyuda(Modelo modelo){
         this.modelo = modelo;
         comoJugar = new JTextArea(this.modelo.getIdioma().getComoJugar(), 5, 20);
-        creditos = new JTextArea(this.modelo.getIdioma().getCreditos(), 5, 20);
         comoJugar.setEditable(false);
-        creditos.setEditable(false);
         add(comoJugar);
-        add(creditos);
     }
     
     public void update(Observable o, Object arg){
-        comoJugar.setText(modelo.getIdioma().getComoJugar()); 
-        creditos.setText(modelo.getIdioma().getCreditos()); 
+        comoJugar.setText(modelo.getIdioma().getComoJugar());  
     }
     
 }
