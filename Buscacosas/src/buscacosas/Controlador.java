@@ -247,7 +247,8 @@ public class Controlador extends JFrame{
         Box caja = Box.createVerticalBox();
         JLabel mision = new JLabel("MISION:");
         JLabel nombreMision = new JLabel("_________");
-        JButton imagen = new JButton("IMAGEN DE LA MISON");
+        JButton imagen = new JButton(modelo.getMision().getImagen());
+        imagen.setContentAreaFilled(false);
         caja.add(mision);
         caja.add(caja.createVerticalGlue());
         caja.add(nombreMision);
