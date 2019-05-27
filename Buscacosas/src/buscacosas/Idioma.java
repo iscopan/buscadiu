@@ -20,7 +20,6 @@ public class Idioma {
     private String nombreMision4;
     private String eligeMision;
     private String comoJugar;
-    private String creditos;
     private String textoConfirmacion;
     private String si;
     private String no;
@@ -44,15 +43,16 @@ public class Idioma {
         idioma.setNombreMision3("dx");
         idioma.setNombreMision4("dx");
         idioma.setEligeMision("xd");
-        idioma.setComoJugar("xd\nlol");
-        idioma.setCreditos("\tCREDITOS \n"
-                + "----------------------\n"
-                + "Guillermo J. Centeno\n"
-                + "Francisco de la Puente\n"
-                + "Juan Blanco\n"
-                + "Samuel Encinas\n"
-                + "Imael Plaza\n"
-                + "Pablo Gil");
+        idioma.setComoJugar("\n\t\t\t\t\tCOMO JUGAR\n"
+                + "-------------------------------------------------------------------------------------------\n"
+                + "\n OBJETIVO: El juego consiste en despejar todas las casillas que no oculten un obstáculo.\n"
+                + "\n METODOLOGIA: Algunas casillas tienen un número, el cual indica la cantidad de obstáculos\n"
+                + "              que rodean dicha casilla. Si se descubre una casilla sin número significa\n"
+                + "              que a su alrederdo no hay ningun obstáculo\n"
+                + "\n CONTROLES:\n"
+                + " \tClick_der --> Haz click derecho sobre una casilla para ver lo que esta oculta\n"
+                + " \tClick_izq --> Usa el click izquierdo para colocar una bandera en la casilla si\n"
+                + " \t              piensas que oculta un obstáculo\n");
         idioma.setTextoConfirmacion("xd");
         idioma.setSi("xd");
         idioma.setNo("xd");
@@ -76,15 +76,17 @@ public class Idioma {
         idioma.setNombreMision3("Theresa May");
         idioma.setNombreMision4("Theresa May");
         idioma.setEligeMision("Theresa May");
-        idioma.setComoJugar("Theresa May");
-        idioma.setCreditos("\tCREDITS \n"
-                + "----------------------\n"
-                + "Guillermo J. Centeno\n"
-                + "Francisco de la Puente\n"
-                + "Juan Blanco\n"
-                + "Samuel Encinas\n"
-                + "Imael Plaza\n"
-                + "Pablo Gil");
+        //TRADUCIR
+        idioma.setComoJugar("\n\t\t\t\t\tHOW TO PLAY\n"
+                + "-------------------------------------------------------------------------------------------\n"
+                + "\n OBJETIVO: El juego consiste en despejar todas las casillas que no oculten un obstáculo.\n"
+                + "\n METODOLOGIA: Algunas casillas tienen un número, el cual indica la cantidad de obstáculos\n"
+                + "              que rodean dicha casilla. Si se descubre una casilla sin número significa\n"
+                + "              que a su alrederdo no hay ningun obstáculo\n"
+                + "\n CONTROLES:\n"
+                + " \tClick_der --> Haz click derecho sobre una casilla para ver lo que esta oculta\n"
+                + " \tClick_izq --> Usa el click izquierdo para colocar una bandera en la casilla si\n"
+                + " \t              piensas que oculta un obstáculo\n");
         idioma.setTextoConfirmacion("Theresa May");
         idioma.setSi("Theresa May");
         idioma.setNo("Theresa May");
@@ -134,10 +136,6 @@ public class Idioma {
 
     public void setComoJugar(String comoJugar) {
         this.comoJugar = comoJugar;
-    }
-
-    public void setCreditos(String creditos) {
-        this.creditos = creditos;
     }
 
     public void setTextoConfirmacion(String textoConfirmacion) {
@@ -202,10 +200,6 @@ public class Idioma {
 
     public String getComoJugar() {
         return comoJugar;
-    }
-
-    public String getCreditos() {
-        return creditos;
     }
 
     public String getTextoConfirmacion() {
