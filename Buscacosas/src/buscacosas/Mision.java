@@ -5,6 +5,8 @@
  */
 package buscacosas;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author GCM
@@ -15,6 +17,9 @@ public class Mision {
     private int filas;
     private int columnas;
     private int numMinas;
+
+   
+    private ImageIcon imagen;
     
     private Mision(){
         
@@ -28,6 +33,7 @@ public class Mision {
         mision.setFilas(8);
         mision.setColumnas(8);
         mision.setNumMinas(8);
+        mision.setImagen(new ImageIcon("imagenes/img3.jpg"));
         
         return mision;
     }
@@ -40,6 +46,7 @@ public class Mision {
         mision.setFilas(10);
         mision.setColumnas(10);
         mision.setNumMinas(10);
+        mision.setImagen(new ImageIcon("imagenes/img3.jpg"));
         
         return mision;
     }
@@ -52,6 +59,7 @@ public class Mision {
         mision.setFilas(15);
         mision.setColumnas(15);
         mision.setNumMinas(15);
+        mision.setImagen(new ImageIcon("imagenes/img3.jpg"));
         
         return mision;
     }
@@ -64,6 +72,7 @@ public class Mision {
         mision.setFilas(20);
         mision.setColumnas(20);
         mision.setNumMinas(20);
+        mision.setImagen(new ImageIcon("imagenes/img3.jpg"));
         
         return mision;
     }
@@ -100,6 +109,11 @@ public class Mision {
         this.numMinas = numMinas;
     }
     
+    public void setImagen(ImageIcon imagen) {
+        this.imagen = imagen;
+    }
     
-    
+    public ImageIcon getImagen() {
+        return imagen;
+    }
 }

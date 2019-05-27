@@ -52,8 +52,11 @@ public class Controlador extends JFrame{
         gb.gridwidth = 4;
         agrega(elegirMision, gb, panelInicio, 0, 0);
         
+        //mision1
         gb.gridwidth = 1;
-        JButton mision1 = new JButton("Mision 1");
+        JButton mision1 = new JButton();
+        mision1.setIcon(Mision.misionUno().getImagen());
+        mision1.setContentAreaFilled(false);
         mision1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setMisionUno();
@@ -61,7 +64,11 @@ public class Controlador extends JFrame{
         });
         agrega(mision1, gb, panelInicio, 0, 1);
         
-        JButton mision2 = new JButton("Misión 2");
+        
+        //mision2
+        JButton mision2 = new JButton();
+        mision2.setIcon(Mision.misionDos().getImagen());
+        mision2.setContentAreaFilled(false);
         mision2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setMisionDos();
@@ -69,7 +76,11 @@ public class Controlador extends JFrame{
         });
         agrega(mision2, gb, panelInicio, 1, 1);
         
-        JButton mision3 = new JButton("Misión 3");
+        
+        //Mision3
+        JButton mision3 = new JButton();
+        mision3.setIcon(Mision.misionTres().getImagen());
+        mision3.setContentAreaFilled(false);
         mision3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setMisionTres();
@@ -77,7 +88,10 @@ public class Controlador extends JFrame{
         });
         agrega(mision3, gb, panelInicio, 2, 1);
         
-        JButton mision4 = new JButton("Misión 4");
+        //Mision 4
+        JButton mision4 = new JButton();
+        mision4.setIcon(Mision.misionCuatro().getImagen());
+        mision4.setContentAreaFilled(false);
         mision4.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setMisionCuatro();
@@ -159,7 +173,9 @@ public class Controlador extends JFrame{
         JPanel panelJugable = new JPanel(new GridLayout(modelo.getMision().getColumnas(), modelo.getMision().getFilas()));
         for(int i = 0; i < modelo.getMision().getColumnas(); i++){
             for(int j = 0; j < modelo.getMision().getFilas(); j++){
-                JButton casilla = new JButton(".");
+                JButton casilla = new JButton();
+                casilla.setIcon(new ImageIcon("imagenes/casilla.png"));
+                casilla.setContentAreaFilled(false);
                 casilla.addMouseListener(new MouseListener(){
                     public void mousePressed(MouseEvent e){}
                     public void mouseReleased(MouseEvent e){}

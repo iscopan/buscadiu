@@ -20,6 +20,8 @@ public class InfoMision extends JPanel implements Observer{
     public InfoMision(Modelo modelo){
         this.modelo = modelo;
         info = new JTextArea();
+        info.setEditable(false);
+        info.setOpaque(false);
         switch(modelo.getMision().getNumMision()){
             case 1:
                 info.setText(this.modelo.getIdioma().getInfoMision1());
