@@ -34,17 +34,17 @@ public class Idioma {
         
         Idioma idioma = new Idioma();
         
-        idioma.setInfoMision1("xd");
-        idioma.setInfoMision2("xd");
-        idioma.setInfoMision3("xd");
-        idioma.setInfoMision4("xd");
+        idioma.setInfoMision1("Aqui va la info de la mision 1");
+        idioma.setInfoMision2("Aqui va la info de la mision 2");
+        idioma.setInfoMision3("Aqui va la info de la mision 3");
+        idioma.setInfoMision4("Aqui va la info de la mision 4");
         idioma.setNombreMision1("dx");
         idioma.setNombreMision2("dx");
         idioma.setNombreMision3("dx");
         idioma.setNombreMision4("dx");
-        idioma.setEligeMision("xd");
+        idioma.setEligeMision("Elige la mision que desees superar");
         idioma.setComoJugar("\n\t\t\t\t\tCOMO JUGAR\n"
-                + "-------------------------------------------------------------------------------------------\n"
+                + "--------------------------------------------------------------------------------------------\n"
                 + "\n OBJETIVO: El juego consiste en despejar todas las casillas que no oculten un obstáculo.\n"
                 + "\n METODOLOGIA: Algunas casillas tienen un número, el cual indica la cantidad de obstáculos\n"
                 + "              que rodean dicha casilla. Si se descubre una casilla sin número significa\n"
@@ -68,25 +68,24 @@ public class Idioma {
         Idioma idioma = new Idioma();
         
         idioma.setInfoMision1("Theresa May");
-        idioma.setInfoMision2("Theresa May");
-        idioma.setInfoMision3("Theresa May");
-        idioma.setInfoMision4("Theresa May");
+        idioma.setInfoMision2("Theresa May 2");
+        idioma.setInfoMision3("Theresa May 3");
+        idioma.setInfoMision4("Theresa May 4");
         idioma.setNombreMision1("Theresa May");
         idioma.setNombreMision2("Theresa May");
         idioma.setNombreMision3("Theresa May");
         idioma.setNombreMision4("Theresa May");
-        idioma.setEligeMision("Theresa May");
-        //TRADUCIR
+        idioma.setEligeMision("Choose the mission you want to overcome");
         idioma.setComoJugar("\n\t\t\t\t\tHOW TO PLAY\n"
-                + "-------------------------------------------------------------------------------------------\n"
-                + "\n OBJETIVO: El juego consiste en despejar todas las casillas que no oculten un obstáculo.\n"
-                + "\n METODOLOGIA: Algunas casillas tienen un número, el cual indica la cantidad de obstáculos\n"
-                + "              que rodean dicha casilla. Si se descubre una casilla sin número significa\n"
-                + "              que a su alrederdo no hay ningun obstáculo\n"
-                + "\n CONTROLES:\n"
-                + " \tClick_der --> Haz click derecho sobre una casilla para ver lo que esta oculta\n"
-                + " \tClick_izq --> Usa el click izquierdo para colocar una bandera en la casilla si\n"
-                + " \t              piensas que oculta un obstáculo\n");
+                + "--------------------------------------------------------------------------------------------\n"
+                + "\n OBJECTIVE: The game consists in clearing all the squares that do not hide an obstacle.\n"
+                + "\n METHODOLOGY: Some boxes have a number, which indicates the number of obstacles surrounding\n"
+                + "              that box. If you discover a box without a number, it means that there is no\n"
+                + "              obstacle around you.\n"
+                + "\n CONTROLS:\n"
+                + " \tRight_Click --> Right click on a box to see what is hidden\n"
+                + " \tLeft_ClicK  --> Use the left click to place a flag in the box if si you think it\n"
+                + " \t                hides an obstacle\n");
         idioma.setTextoConfirmacion("Theresa May");
         idioma.setSi("Theresa May");
         idioma.setNo("Theresa May");

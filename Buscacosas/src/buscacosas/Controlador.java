@@ -53,16 +53,36 @@ public class Controlador extends JFrame{
         agrega(elegirMision, gb, panelInicio, 0, 0);
         
         gb.gridwidth = 1;
-        JButton mision1 = new JButton("Misión 1");
+        JButton mision1 = new JButton("Mision 1");
+        mision1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                modelo.setMisionUno();
+            }
+        });
         agrega(mision1, gb, panelInicio, 0, 1);
         
         JButton mision2 = new JButton("Misión 2");
+        mision2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                modelo.setMisionDos();
+            }
+        });
         agrega(mision2, gb, panelInicio, 1, 1);
         
         JButton mision3 = new JButton("Misión 3");
+        mision3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                modelo.setMisionTres();
+            }
+        });
         agrega(mision3, gb, panelInicio, 2, 1);
         
         JButton mision4 = new JButton("Misión 4");
+        mision4.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                modelo.setMisionCuatro();
+            }
+        });
         agrega(mision4, gb, panelInicio, 3, 1);
         
         JPanel panelIdiomas = new JPanel();
@@ -136,9 +156,9 @@ public class Controlador extends JFrame{
         });
         panelJuego.add(volver, BorderLayout.NORTH);
         
-        JPanel panelJugable = new JPanel(new GridLayout(modelo.getX(), modelo.getY()));
-        for(int i = 0; i < modelo.getX(); i++){
-            for(int j = 0; j < modelo.getY(); j++){
+        JPanel panelJugable = new JPanel(new GridLayout(modelo.getMision().getColumnas(), modelo.getMision().getFilas()));
+        for(int i = 0; i < modelo.getMision().getColumnas(); i++){
+            for(int j = 0; j < modelo.getMision().getFilas(); j++){
                 JButton casilla = new JButton(".");
                 casilla.addMouseListener(new MouseListener(){
                     public void mousePressed(MouseEvent e){}

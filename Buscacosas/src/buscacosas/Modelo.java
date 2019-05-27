@@ -15,9 +15,11 @@ public class Modelo extends Observable{
     
     private Resultado[] ranking;
     private Idioma idioma;
+    private Mision mision;
     
     public Modelo(){
         setIdiomaEspannol();
+        setMisionUno();
         ranking = new Resultado[10];
         ranking[0] = new Resultado("CEN", 10);
         ranking[1] = new Resultado("JUA", 20);
@@ -30,32 +32,9 @@ public class Modelo extends Observable{
         ranking[8] = new Resultado("ROC", 90);
     }
     
-    // idiomas querida (array + elegido)
-    // misiones (array + elegida)
-    
     public void notificarObservadores(){
         setChanged();
         notifyObservers();
-    }
-    
-    public String getChooseMissionMessage(){
-        return "Elige tu misión:";
-    }
-    
-    public String getMissionInfo(){
-        return "info de la misión";
-    }
-    
-    public int getX(){
-        return 8;
-    }
-    
-    public int getY(){
-        return 8;
-    }
-    
-    public int getNumMinas(){
-        return 8;
     }
     
     public Resultado getRanking(int pos){
@@ -101,4 +80,29 @@ public class Modelo extends Observable{
     public Idioma getIdioma(){
         return idioma;
     }
+    
+    public Mision getMision(){
+        return mision;
+    }
+    
+    public void setMisionUno(){
+        mision = Mision.misionUno();
+        notificarObservadores();
+    }
+    
+    public void setMisionDos(){
+        mision = Mision.misionDos();
+        notificarObservadores();
+    }
+    
+    public void setMisionTres(){
+        mision = Mision.misionTres();
+        notificarObservadores();
+    }
+    
+    public void setMisionCuatro(){
+        mision = Mision.misionCuatro();
+        notificarObservadores();
+    }
+    
 }

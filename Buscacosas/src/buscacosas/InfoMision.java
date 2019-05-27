@@ -15,16 +15,43 @@ import javax.swing.*;
 public class InfoMision extends JPanel implements Observer{
     
     private Modelo modelo;
-    private JLabel info;
+    private JTextArea info;
     
     public InfoMision(Modelo modelo){
         this.modelo = modelo;
-        info = new JLabel(this.modelo.getIdioma().getInfoMision1());
+        info = new JTextArea();
+        switch(modelo.getMision().getNumMision()){
+            case 1:
+                info.setText(this.modelo.getIdioma().getInfoMision1());
+                break;
+            case 2:
+                info.setText(this.modelo.getIdioma().getInfoMision2());
+                break;
+            case 3:
+                info.setText(this.modelo.getIdioma().getInfoMision3());
+                break;
+            case 4:
+                info.setText(this.modelo.getIdioma().getInfoMision4());
+                break;
+        }
         add(info);
     }
     
     public void update(Observable o, Object arg){
-        info.setText(this.modelo.getIdioma().getInfoMision1());
+        switch(modelo.getMision().getNumMision()){
+            case 1:
+                info.setText(this.modelo.getIdioma().getInfoMision1());
+                break;
+            case 2:
+                info.setText(this.modelo.getIdioma().getInfoMision2());
+                break;
+            case 3:
+                info.setText(this.modelo.getIdioma().getInfoMision3());
+                break;
+            case 4:
+                info.setText(this.modelo.getIdioma().getInfoMision4());
+                break;
+        }
     }
     
 }
