@@ -25,6 +25,7 @@ public class TextoAyuda extends JPanel implements Observer{
         this.modelo = modelo;
         comoJugar = new JTextArea(this.modelo.getIdioma().getComoJugar(), 5, 20);
         comoJugar.setEditable(false);
+        comoJugar.setOpaque(false);
         add(comoJugar);
     }
     
