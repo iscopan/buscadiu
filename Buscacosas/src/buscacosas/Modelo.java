@@ -9,7 +9,7 @@ import java.util.*;
 
 /**
  *
- * @author franc
+ * @author francisco
  */
 public class Modelo extends Observable{
     
