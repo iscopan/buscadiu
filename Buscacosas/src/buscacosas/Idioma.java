@@ -25,8 +25,8 @@ public class Idioma {
     private String no;
     private String hasGanado;
     private String introduceIniciales;
-    private String aceptar;    
-    
+    private String aceptar;
+
     private Idioma(){      
     }
     
@@ -160,7 +160,7 @@ public class Idioma {
     public void setAceptar(String aceptar) {
         this.aceptar = aceptar;
     }
-
+    
     public String getInfoMision1() {
         return infoMision1;
     }
@@ -224,5 +224,5 @@ public class Idioma {
     public String getAceptar() {
         return aceptar;
     }
-
+    
 }
