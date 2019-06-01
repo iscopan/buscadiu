@@ -7,6 +7,7 @@ package buscacosas;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
 import javax.swing.*;
 
 /**
@@ -15,6 +16,8 @@ import javax.swing.*;
  */
 public class Controlador extends JFrame{
     
+    private boolean iniciado = false;
+    private boolean perdido = false;
     private Modelo modelo = new Modelo();
     
     private InfoMision infoMision = new InfoMision(modelo);
@@ -161,7 +164,8 @@ public class Controlador extends JFrame{
     }
     
     public void generarPanelJuego(){
-        
+        iniciado = false;
+        perdido = false;
         panelJuego = new JPanel(new BorderLayout());
         
         JButton volver = new JButton();
@@ -174,6 +178,7 @@ public class Controlador extends JFrame{
         panelJuego.add(volver, BorderLayout.NORTH);
         
         JPanel panelJugable = new JPanel(new GridLayout(modelo.getMision().getColumnas(), modelo.getMision().getFilas()));
+        Casilla[][] mapa = new Casilla[modelo.getMision().getColumnas()][modelo.getMision().getColumnas()];
         for(int i = 0; i < modelo.getMision().getColumnas(); i++){
             for(int j = 0; j < modelo.getMision().getFilas(); j++){
                 Casilla casilla = new Casilla(modelo);
@@ -183,16 +188,37 @@ public class Controlador extends JFrame{
                     public void mouseEntered(MouseEvent e){}
                     public void mouseExited(MouseEvent e){}
                     public void mouseClicked(MouseEvent e){
-                        JButton c = (JButton) e.getSource();
+                        Casilla casilla =(Casilla) e.getSource();
                         switch(e.getButton()){
                             case MouseEvent.BUTTON1:
-                                modelo.actualizarRanking("LLL", tiempo);
+                                if(perdido != true){
+                                    if(!iniciado){
+                                        colocarMinas(casilla, mapa);
+                                        colocarNumeros(mapa);
+                                        iniciado = true;
+                                    }
+                                    casilla.revelar();
+                                    if (casilla.getMina()){
+                                        perder(mapa);
+                                        perdido = true;
+                                    }
+                                    else{
+                                        if (casilla.minasAlrededor() == 0){
+                                            int[] indices = indicesCasilla(casilla, mapa);
+                                            recurRevelar(indices[0], indices[1], mapa);
+                                        }
+                                        checkGanar(mapa);
+                                    }
+                                    modelo.actualizarRanking("LLL", tiempo);
+                                }
                                 break;
                             case MouseEvent.BUTTON3:
+                                casilla.bandera();
                                 break;
                         }
                     }
                 });
+                mapa[i][j] = casilla;
                 panelJugable.add(casilla);
             }
         }
@@ -273,4 +299,78 @@ public class Controlador extends JFrame{
         v.add(c, gb);
     }
     
+      private void colocarMinas(Casilla click, Casilla[][] mapa){
+        int minas = modelo.getMision().getNumMinas();
+        Random r = new Random();
+        while (minas>0){
+            int i = r.nextInt(modelo.getMision().getFilas());
+            int j = r.nextInt(modelo.getMision().getColumnas());
+            if (!mapa[i][j].getMina() || !click.equals(mapa[i][j])){
+                mapa[i][j].setMina(true);
+                minas--;
+            }
+        }
+    }
+    private void colocarNumeros(Casilla[][] mapa) {
+        for (int i=0; i<modelo.getMision().getColumnas(); i++)
+            for (int j=0; j<modelo.getMision().getFilas(); j++)
+                if (!mapa[i][j].getMina()){
+                    int nminas = 0;
+                    for (int k=i-1; k<=i+1; k++)
+                        for (int l=j-1; l<=j+1; l++)
+                            if (k>=0 && l>=0 && k<modelo.getMision().getFilas() && l<modelo.getMision().getColumnas())
+                                if (mapa[k][l].getMina())
+                                    nminas = nminas+1;
+                    if (nminas > 0)
+                        mapa[i][j].setNum(nminas);
+                }
+    }
+
+    private void perder(Casilla[][] mapa) {
+        for (int i=0; i<modelo.getMision().getColumnas(); i++){
+            for (int j=0; j<modelo.getMision().getFilas(); j++){
+                    mapa[i][j].revelar();
+                
+            }
+        }       
+    }
+    
+    private void recurRevelar(int fila, int columna, Casilla[][] mapa) {
+        mapa[fila][columna].revelar();
+        if (mapa[fila][columna].minasAlrededor() == 0)
+            for (int k=fila-1; k<=fila+1; k++)
+                for (int l=columna-1; l<=columna+1; l++)
+                    if (k>=0 && l>=0 && k<modelo.getMision().getColumnas() && l<modelo.getMision().getFilas()){
+                        if (mapa[k][l].esOculto()){
+                            mapa[k][l].revelar();
+                            if (mapa[k][l].minasAlrededor() == 0){
+                                recurRevelar(k, l, mapa);
+                            }
+                        }
+                    }
+    }
+    
+    private int[] indicesCasilla(Casilla c, Casilla[][] mapa){
+        int i=0, j=0;
+        for (int k=0; k<modelo.getMision().getColumnas(); k++)
+            for (int l=0; l<modelo.getMision().getFilas(); l++)
+                if (c.equals(mapa[k][l])){
+                    i = k;
+                    j = l;
+                }
+        int[] res = new int[2];
+        res[0] = i;
+        res[1] = j;
+        return res;
+    }
+    
+    private void checkGanar(Casilla[][] mapa) {
+        int revelados = 0;
+        for (int i=0; i<modelo.getMision().getColumnas(); i++)
+            for (int j=0; j<modelo.getMision().getFilas(); j++)
+                if (!mapa[i][j].esOculto())
+                    revelados++;
+        if (revelados == modelo.getMision().getColumnas()*modelo.getMision().getFilas()-modelo.getMision().getNumMinas())
+            System.out.println("Arriba España");
+    }
 }
