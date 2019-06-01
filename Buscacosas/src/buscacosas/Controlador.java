@@ -162,7 +162,8 @@ public class Controlador extends JFrame{
         
         panelJuego = new JPanel(new BorderLayout());
         
-        JButton volver = new JButton("Volver");
+        JButton volver = new JButton();
+        volver.setIcon(modelo.getMision().getVolver());
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelInicio();
@@ -174,7 +175,7 @@ public class Controlador extends JFrame{
         for(int i = 0; i < modelo.getMision().getColumnas(); i++){
             for(int j = 0; j < modelo.getMision().getFilas(); j++){
                 JButton casilla = new JButton();
-                casilla.setIcon(new ImageIcon("imagenes/casilla.png"));
+                casilla.setIcon(modelo.getMision().getSinPisar());
                 casilla.setContentAreaFilled(false);
                 casilla.addMouseListener(new MouseListener(){
                     public void mousePressed(MouseEvent e){}
