@@ -5,6 +5,7 @@
  */
 package buscacosas;
 
+import java.awt.Insets;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.ImageIcon;
@@ -24,6 +25,7 @@ public class Casilla extends JButton implements Observer{
     public Casilla(Modelo modelo){
         this.modelo = modelo;
         setContentAreaFilled(false);
+        setMargin(new Insets(0,0,0,0));
         setIcon(modelo.getMision().getSinPisar());
     }
     
