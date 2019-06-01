@@ -176,9 +176,7 @@ public class Controlador extends JFrame{
         JPanel panelJugable = new JPanel(new GridLayout(modelo.getMision().getColumnas(), modelo.getMision().getFilas()));
         for(int i = 0; i < modelo.getMision().getColumnas(); i++){
             for(int j = 0; j < modelo.getMision().getFilas(); j++){
-                JButton casilla = new JButton();
-                casilla.setIcon(modelo.getMision().getSinPisar());
-                casilla.setContentAreaFilled(false);
+                Casilla casilla = new Casilla(modelo);
                 casilla.addMouseListener(new MouseListener(){
                     public void mousePressed(MouseEvent e){}
                     public void mouseReleased(MouseEvent e){}
@@ -189,7 +187,6 @@ public class Controlador extends JFrame{
                         switch(e.getButton()){
                             case MouseEvent.BUTTON1:
                                 modelo.actualizarRanking("LLL", tiempo);
-                                generarPanelRanking();
                                 break;
                             case MouseEvent.BUTTON3:
                                 break;
