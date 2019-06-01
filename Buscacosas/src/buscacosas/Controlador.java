@@ -59,6 +59,7 @@ public class Controlador extends JFrame{
         gb.gridwidth = 1;
         JButton mision1 = new JButton();
         mision1.setIcon(Mision.misionUno().getImagen());
+        mision1.setMargin(new Insets(0,0,0,0));
         mision1.setContentAreaFilled(false);
         mision1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -71,6 +72,7 @@ public class Controlador extends JFrame{
         //mision2
         JButton mision2 = new JButton();
         mision2.setIcon(Mision.misionDos().getImagen());
+        mision2.setMargin(new Insets(0,0,0,0));
         mision2.setContentAreaFilled(false);
         mision2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -83,6 +85,7 @@ public class Controlador extends JFrame{
         //Mision3
         JButton mision3 = new JButton();
         mision3.setIcon(Mision.misionTres().getImagen());
+        mision3.setMargin(new Insets(0,0,0,0));
         mision3.setContentAreaFilled(false);
         mision3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -94,6 +97,7 @@ public class Controlador extends JFrame{
         //Mision 4
         JButton mision4 = new JButton();
         mision4.setIcon(Mision.misionCuatro().getImagen());
+        mision4.setMargin(new Insets(0,0,0,0));
         mision4.setContentAreaFilled(false);
         mision4.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -103,13 +107,17 @@ public class Controlador extends JFrame{
         agrega(mision4, gb, panelInicio, 3, 1);
         
         JPanel panelIdiomas = new JPanel();
-        JButton esp = new JButton("Español");
+        JButton esp = new JButton(new ImageIcon("imagenes/espanol.png"));
+        esp.setMargin(new Insets(0,0,0,0));
+        esp.setContentAreaFilled(false);
         esp.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setIdiomaEspannol();
             }
         });
-        JButton eng = new JButton("English");
+        JButton eng = new JButton(new ImageIcon("imagenes/ingles.png"));
+        eng.setMargin(new Insets(0,0,0,0));
+        eng.setContentAreaFilled(false);
         eng.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setIdiomaIngles();
