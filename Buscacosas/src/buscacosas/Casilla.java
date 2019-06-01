@@ -36,9 +36,12 @@ public class Casilla extends JButton implements Observer{
             else{
                 setIcon(null);
                 setText(Integer.toString(minasAlrededor));
+                
             }
         }
-        else if (tieneBandera) setIcon(modelo.getMision().getBandera());
+        else if (tieneBandera){
+            setIcon(modelo.getMision().getBandera());
+        }
     }
 
     public boolean getMina() {
@@ -47,7 +50,6 @@ public class Casilla extends JButton implements Observer{
 
     public void revelar() {
         esOculto = false;
-        setEnabled(false);
         update(new Observable(), new Object());
     }
     
@@ -59,7 +61,8 @@ public class Casilla extends JButton implements Observer{
         minasAlrededor = nminas;
     }
 
-    public void bandera() {
+    public void bandera(){
+        setIcon(modelo.getMision().getBandera());
         tieneBandera = !tieneBandera;
     }
 
