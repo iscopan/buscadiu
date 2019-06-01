@@ -168,6 +168,8 @@ public class Controlador extends JFrame{
         perdido = false;
         panelJuego = new JPanel(new BorderLayout());
         
+        Box caja = Box.createHorizontalBox();
+        
         JButton volver = new JButton();
         volver.setIcon(modelo.getMision().getVolver());
         volver.addActionListener(new ActionListener(){
@@ -175,7 +177,20 @@ public class Controlador extends JFrame{
                 generarPanelInicio();
             }
         });
-        panelJuego.add(volver, BorderLayout.NORTH);
+        JButton resert = new JButton();
+        resert.setIcon(modelo.getMision().getReiniciar());
+        resert.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                generarPanelJuego();
+            }
+        });
+        
+        caja.add(volver);
+        caja.add(caja.createHorizontalGlue());
+        caja.add(resert);
+        
+        panelJuego.add(caja, BorderLayout.NORTH);
+        
         
         JPanel panelJugable = new JPanel(new GridLayout(modelo.getMision().getColumnas(), modelo.getMision().getFilas()));
         Casilla[][] mapa = new Casilla[modelo.getMision().getColumnas()][modelo.getMision().getColumnas()];
@@ -222,8 +237,6 @@ public class Controlador extends JFrame{
                 panelJugable.add(casilla);
             }
         }
-        
-        // panelJugable.getComponents(); devuelve todos los componentes
         
         panelJuego.add(panelJugable, BorderLayout.CENTER);
         

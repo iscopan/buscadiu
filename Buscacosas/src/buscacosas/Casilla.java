@@ -34,8 +34,33 @@ public class Casilla extends JButton implements Observer{
             }
             //else setIcon(num[minasAlrededor]);
             else{
-                setIcon(null);
-                setText(Integer.toString(minasAlrededor));
+                if(minasAlrededor == 0){
+                    setIcon(modelo.getMision().getPisado());
+                }
+                if(minasAlrededor == 1){
+                    setIcon(modelo.getMision().getPisado1());
+                }
+                if(minasAlrededor == 2){
+                    setIcon(modelo.getMision().getPisado2());
+                }
+                if(minasAlrededor == 3){
+                    setIcon(modelo.getMision().getPisado3());
+                }
+                if(minasAlrededor == 4){
+                    setIcon(modelo.getMision().getPisado4());
+                }
+                if(minasAlrededor == 5){
+                    setIcon(modelo.getMision().getPisado5());
+                }
+                if(minasAlrededor == 6){
+                    setIcon(modelo.getMision().getPisado6());
+                }
+                if(minasAlrededor == 7){
+                    setIcon(modelo.getMision().getPisado7());
+                }
+                if(minasAlrededor == 8){
+                    setIcon(modelo.getMision().getPisado8());
+                }
                 
             }
         }
