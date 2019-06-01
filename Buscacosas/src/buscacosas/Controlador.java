@@ -125,7 +125,9 @@ public class Controlador extends JFrame{
         agrega(infoMision, gb, panelInicio, 0, 2);
         
         gb.gridwidth = 1;
-        JButton play = new JButton("JUGAR");
+        JButton play = new JButton();
+        play.setIcon(new ImageIcon("imagenes/play.png"));
+        play.setContentAreaFilled(false);
         play.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelJuego();
