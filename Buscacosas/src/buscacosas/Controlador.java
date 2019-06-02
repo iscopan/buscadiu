@@ -179,7 +179,7 @@ public class Controlador extends JFrame{
         contador = new Contador(modelo);
         panelJuego = new JPanel(new BorderLayout());
         
-        JPanel caja = new JPanel(new BorderLayout());
+        JPanel cabeza = new JPanel(new BorderLayout());
         
         JButton volver = new JButton();
         volver.setIcon(modelo.getMision().getVolver());
@@ -199,11 +199,11 @@ public class Controlador extends JFrame{
             }
         });
         
-        caja.add(volver,BorderLayout.WEST);
-        caja.add(contador, BorderLayout.CENTER);
-        caja.add(resert, BorderLayout.EAST);
+        cabeza.add(volver,BorderLayout.WEST);
+        cabeza.add(contador, BorderLayout.CENTER);
+        cabeza.add(resert, BorderLayout.EAST);
         
-        panelJuego.add(caja, BorderLayout.NORTH);
+        panelJuego.add(cabeza, BorderLayout.NORTH);
         
         JPanel panelJugable = new JPanel(new GridLayout(modelo.getMision().getColumnas(), modelo.getMision().getFilas()));
         Casilla[][] mapa = new Casilla[modelo.getMision().getColumnas()][modelo.getMision().getColumnas()];
@@ -245,8 +245,10 @@ public class Controlador extends JFrame{
                             case MouseEvent.BUTTON3:
                                 if(casilla.getTieneBandera() == true){
                                     casilla.quitarBandera();
+                                    
                                 }else{
                                     casilla.bandera();
+                                   
                                 }
                                 break;
                         }

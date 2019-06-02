@@ -40,7 +40,7 @@ public class Contador extends JPanel{
                 segundos++;
             }
         };
-        t = new Timer(1/2, e);
+        t = new Timer(1000, e);
     }
     
     public void inicio(){
