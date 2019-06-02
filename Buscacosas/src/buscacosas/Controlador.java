@@ -245,15 +245,17 @@ public class Controlador extends JFrame{
                                 }
                                 break;
                             case MouseEvent.BUTTON3:
-                                if(casilla.getTieneBandera() == true){
-                                    casilla.quitarBandera();
-                                    contador.quitar();
+                                if(casilla.esOculto()==true){
+                                    if(casilla.getTieneBandera() == true){
+                                        casilla.quitarBandera();
+                                        contador.quitar();
 
-                                }
-                                else if(contador.getNumero()>0){
-                                    casilla.bandera();
-                                    contador.poner();
-                                   
+                                    }
+                                    else if(contador.getNumero()>0){
+                                        casilla.bandera();
+                                        contador.poner();
+
+                                    }
                                 }
                                 break;
                         }
