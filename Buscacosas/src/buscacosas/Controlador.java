@@ -183,6 +183,7 @@ public class Controlador extends JFrame{
         
         JButton volver = new JButton();
         volver.setIcon(modelo.getMision().getVolver());
+        volver.setContentAreaFilled(false);
         volver.setMargin(new Insets(0,0,0,0));
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -193,6 +194,7 @@ public class Controlador extends JFrame{
         JButton resert = new JButton();
         resert.setIcon(modelo.getMision().getReiniciar());
         resert.setMargin(new Insets(0,0,0,0));
+        resert.setContentAreaFilled(false);
         resert.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelJuego();
@@ -245,9 +247,12 @@ public class Controlador extends JFrame{
                             case MouseEvent.BUTTON3:
                                 if(casilla.getTieneBandera() == true){
                                     casilla.quitarBandera();
-                                    
-                                }else{
+                                    contador.quitar();
+
+                                }
+                                else if(contador.getNumero()>0){
                                     casilla.bandera();
+                                    contador.poner();
                                    
                                 }
                                 break;
