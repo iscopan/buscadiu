@@ -7,6 +7,7 @@ package buscacosas;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.time.LocalTime;
 import java.util.Random;
 import javax.swing.*;
 
@@ -24,6 +25,7 @@ public class Controlador extends JFrame{
     private ElegirMision elegirMision = new ElegirMision(modelo);
     private Ranking verRanking = new Ranking(modelo);
     private TextoAyuda verAyuda = new TextoAyuda(modelo);
+    private Contador contador;
     
     private JPanel panelInicio;
     private JPanel panelJuego;
@@ -33,7 +35,7 @@ public class Controlador extends JFrame{
     private int tiempo = 21;
     
     public Controlador(){
-        
+    
         modelo.addObserver(infoMision);
         modelo.addObserver(verRanking);
         modelo.addObserver(elegirMision);
@@ -174,31 +176,34 @@ public class Controlador extends JFrame{
     public void generarPanelJuego(){
         iniciado = false;
         perdido = false;
+        contador = new Contador(modelo);
         panelJuego = new JPanel(new BorderLayout());
         
-        Box caja = Box.createHorizontalBox();
+        JPanel caja = new JPanel(new BorderLayout());
         
         JButton volver = new JButton();
         volver.setIcon(modelo.getMision().getVolver());
+        volver.setMargin(new Insets(0,0,0,0));
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelInicio();
             }
         });
+        
         JButton resert = new JButton();
         resert.setIcon(modelo.getMision().getReiniciar());
+        resert.setMargin(new Insets(0,0,0,0));
         resert.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelJuego();
             }
         });
         
-        caja.add(volver);
-        caja.add(caja.createHorizontalGlue());
-        caja.add(resert);
+        caja.add(volver,BorderLayout.WEST);
+        caja.add(contador, BorderLayout.CENTER);
+        caja.add(resert, BorderLayout.EAST);
         
         panelJuego.add(caja, BorderLayout.NORTH);
-        
         
         JPanel panelJugable = new JPanel(new GridLayout(modelo.getMision().getColumnas(), modelo.getMision().getFilas()));
         Casilla[][] mapa = new Casilla[modelo.getMision().getColumnas()][modelo.getMision().getColumnas()];
@@ -216,12 +221,14 @@ public class Controlador extends JFrame{
                             case MouseEvent.BUTTON1:
                                 if(perdido != true){
                                     if(!iniciado){
+                                        contador.inicio();
                                         colocarMinas(casilla, mapa);
                                         colocarNumeros(mapa);
                                         iniciado = true;
                                     }
                                     casilla.revelar();
                                     if (casilla.getMina()){
+                                        contador.parar();
                                         perder(mapa);
                                         perdido = true;
                                     }
@@ -236,7 +243,11 @@ public class Controlador extends JFrame{
                                 }
                                 break;
                             case MouseEvent.BUTTON3:
-                                casilla.bandera();
+                                if(casilla.getTieneBandera() == true){
+                                    casilla.quitarBandera();
+                                }else{
+                                    casilla.bandera();
+                                }
                                 break;
                         }
                     }
@@ -392,6 +403,6 @@ public class Controlador extends JFrame{
                 if (!mapa[i][j].esOculto())
                     revelados++;
         if (revelados == modelo.getMision().getColumnas()*modelo.getMision().getFilas()-modelo.getMision().getNumMinas())
-            System.out.println("Arriba España");
+            contador.parar();
     }
 }

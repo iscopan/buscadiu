@@ -5,7 +5,10 @@
  */
 package buscacosas;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
+import javax.swing.Timer;
 
 /**
  *
@@ -16,7 +19,7 @@ public class Modelo extends Observable{
     private Resultado[] ranking;
     private Idioma idioma;
     private Mision mision;
-    
+
     public Modelo(){
         setIdiomaEspannol();
         setMisionUno();
@@ -104,5 +107,4 @@ public class Modelo extends Observable{
         mision = Mision.misionCuatro();
         notificarObservadores();
     }
-    
 }

@@ -92,6 +92,11 @@ public class Casilla extends JButton implements Observer{
         setIcon(modelo.getMision().getBandera());
         tieneBandera = !tieneBandera;
     }
+    
+    public void quitarBandera(){
+        setIcon(modelo.getMision().getSinPisar());
+        tieneBandera = !tieneBandera;
+    }
 
     public int minasAlrededor() {
         return minasAlrededor;
@@ -99,5 +104,8 @@ public class Casilla extends JButton implements Observer{
     
     public boolean esOculto() {
         return esOculto;
+    }
+    public boolean getTieneBandera(){
+        return tieneBandera;
     }
 }
