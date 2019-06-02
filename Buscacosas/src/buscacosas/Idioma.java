@@ -34,15 +34,15 @@ public class Idioma {
         
         Idioma idioma = new Idioma();
         
-        idioma.setInfoMision1("Aqui va la info de la mision 1");
-        idioma.setInfoMision2("Aqui va la info de la mision 2");
-        idioma.setInfoMision3("Aqui va la info de la mision 3");
-        idioma.setInfoMision4("Aqui va la info de la mision 4");
-        idioma.setNombreMision1("dx");
-        idioma.setNombreMision2("dx");
-        idioma.setNombreMision3("dx");
-        idioma.setNombreMision4("dx");
-        idioma.setEligeMision("Elige la mision que desees superar");
+        idioma.setInfoMision1("\tDificultad: Fácil\n\tAdentrate en el amistodo prado, pero\n \t¡no pises las margaritas!");
+        idioma.setInfoMision2("\tDificultad: Media\n\tLocaliza todas las trampas que hay colocadas en\n\t el desierto en el menor tiempo posible.");
+        idioma.setInfoMision3("\tDificultad: Difícil\n\tEste misterioso pantano está\n\t repleto de fango venenoso\n\t no te despieste o caerás en él.");
+        idioma.setInfoMision4("\tDificultad: Muy difícil\n\tEl volcán activo es el mayor de los desafíos\n\t ¡anda con mucho cuidado si no quieres caer\n en la ardiente lava!");
+        idioma.setNombreMision1("El Prado Verdoso");
+        idioma.setNombreMision2("El Desierto de la Momia");
+        idioma.setNombreMision3("El Pantano Venenoso");
+        idioma.setNombreMision4("El Volcán Llameante");
+        idioma.setEligeMision("Selecciona la misión que deseas superar: ");
         idioma.setComoJugar("\n\t\t\t\t\tCOMO JUGAR\n"
                 + "--------------------------------------------------------------------------------------------\n"
                 + "\n OBJETIVO: El juego consiste en despejar todas las casillas que no oculten un obstáculo.\n"
@@ -50,15 +50,15 @@ public class Idioma {
                 + "              que rodean dicha casilla. Si se descubre una casilla sin número significa\n"
                 + "              que a su alrederdo no hay ningun obstáculo\n"
                 + "\n CONTROLES:\n"
-                + " \tClick_der --> Haz click derecho sobre una casilla para ver lo que esta oculta\n"
-                + " \tClick_izq --> Usa el click izquierdo para colocar una bandera en la casilla si\n"
+                + " \tClick derecho   --> Haz click derecho sobre una casilla para ver lo que esta oculta\n"
+                + " \tClick izquierdo --> Usa el click izquierdo para colocar una bandera en la casilla si\n"
                 + " \t              piensas que oculta un obstáculo\n");
-        idioma.setTextoConfirmacion("xd");
-        idioma.setSi("xd");
-        idioma.setNo("xd");
-        idioma.setHasGanado("xd");
-        idioma.setIntroduceIniciales("xd");
-        idioma.setAceptar("xd");
+        idioma.setTextoConfirmacion("¿Deseas salir?");
+        idioma.setSi("Sí");
+        idioma.setNo("No");
+        idioma.setHasGanado("¡Has ganado!");
+        idioma.setIntroduceIniciales("Introduce tus iniciales");
+        idioma.setAceptar("Aceptar");
             
         return idioma;
     }
@@ -67,15 +67,15 @@ public class Idioma {
         
         Idioma idioma = new Idioma();
         
-        idioma.setInfoMision1("Theresa May");
-        idioma.setInfoMision2("Theresa May 2");
-        idioma.setInfoMision3("Theresa May 3");
-        idioma.setInfoMision4("Theresa May 4");
-        idioma.setNombreMision1("Theresa May");
-        idioma.setNombreMision2("Theresa May");
-        idioma.setNombreMision3("Theresa May");
-        idioma.setNombreMision4("Theresa May");
-        idioma.setEligeMision("Choose the mission you want to overcome");
+        idioma.setInfoMision1("\tDifficult: Easy\n Enter on the frindly meadow, but\n careful with the daisies!");
+        idioma.setInfoMision2("\tDifficult: Medium\nFind all the traps\n which are placed in the desert.");
+        idioma.setInfoMision3("\tDifficult: Hard\n\tThis spooky swamp is full of toxic mud\n be careful or you will fall into it.");
+        idioma.setInfoMision4("\tDifficult: Very hard\nThe active volcan is the hardest challenge\n walk safely if you don't want \ninto burn with the lava.");
+        idioma.setNombreMision1("The Greenish Meadow");
+        idioma.setNombreMision2("The Mummy's Desert");
+        idioma.setNombreMision3("The Toxic Swamp");
+        idioma.setNombreMision4("The Flaming Volcan");
+        idioma.setEligeMision("Choose the mission you want to overcome: ");
         idioma.setComoJugar("\n\t\t\t\t\tHOW TO PLAY\n"
                 + "--------------------------------------------------------------------------------------------\n"
                 + "\n OBJECTIVE: The game consists in clearing all the squares that do not hide an obstacle.\n"
@@ -86,12 +86,12 @@ public class Idioma {
                 + " \tRight_Click --> Right click on a box to see what is hidden\n"
                 + " \tLeft_ClicK  --> Use the left click to place a flag in the box if si you think it\n"
                 + " \t                hides an obstacle\n");
-        idioma.setTextoConfirmacion("Theresa May");
-        idioma.setSi("Theresa May");
-        idioma.setNo("Theresa May");
-        idioma.setHasGanado("Theresa May");
-        idioma.setIntroduceIniciales("Theresa May");
-        idioma.setAceptar("Theresa May");
+        idioma.setTextoConfirmacion("Are you sure you want to close the game?");
+        idioma.setSi("Yes");
+        idioma.setNo("No");
+        idioma.setHasGanado("You win!");
+        idioma.setIntroduceIniciales("Enter your initials");
+        idioma.setAceptar("Accept");
             
         return idioma;
         

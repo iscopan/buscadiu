@@ -5,6 +5,7 @@
  */
 package buscacosas;
 
+import java.awt.ComponentOrientation;
 import java.util.*;
 import javax.swing.*;
 
@@ -22,6 +23,8 @@ public class InfoMision extends JPanel implements Observer{
         info = new JTextArea();
         info.setEditable(false);
         info.setOpaque(false);
+        info.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+
         switch(modelo.getMision().getNumMision()){
             case 1:
                 info.setText(this.modelo.getIdioma().getInfoMision1());
