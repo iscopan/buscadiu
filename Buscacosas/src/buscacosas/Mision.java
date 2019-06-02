@@ -36,7 +36,9 @@ public class Mision {
     private ImageIcon reloj;
 
     private ImageIcon imagen;
-
+    
+    
+   
     private Mision() {
 
     }
