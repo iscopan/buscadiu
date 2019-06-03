@@ -231,6 +231,7 @@ public class Controlador extends JFrame{
                                         contador.parar();
                                         perder(mapa);
                                         perdido = true;
+                                        JOptionPane.showMessageDialog(null, modelo.getIdioma().getHasPerdido(), "GAME OVER", JOptionPane.OK_OPTION, modelo.getMision().getImagen());
                                     }
                                     else{
                                         if (casilla.minasAlrededor() == 0){
@@ -240,7 +241,6 @@ public class Controlador extends JFrame{
                                         checkGanar(mapa);
                                     }
                                     if(perdido == true){
-                                        modelo.actualizarRanking("LLL", modelo.getRanking(8).getSegundos()+1);
                                         generarPanelRanking();
                                     }
                                 }
@@ -341,18 +341,43 @@ public class Controlador extends JFrame{
         v.add(c, gb);
     }
     
-      private void colocarMinas(Casilla click, Casilla[][] mapa){
+    private void colocarMinas(Casilla click, Casilla[][] mapa){
         int minas = modelo.getMision().getNumMinas();
         Random r = new Random();
         while (minas>0){
             int i = r.nextInt(modelo.getMision().getFilas());
             int j = r.nextInt(modelo.getMision().getColumnas());
-            if (!mapa[i][j].getMina() || !click.equals(mapa[i][j])){
+            if (!mapa[i][j].getMina() && !click.equals(mapa[i][j])){
                 mapa[i][j].setMina(true);
                 minas--;
             }
         }
     }
+    /**
+    private boolean espacioLibre(Casilla casilla, Casilla[][] mapa, int posX, int posY){
+	if(casilla.equals(mapa[posX][posY])){
+		return false;
+	}else if(casilla.equals(mapa[posX-1][posY-1])){
+		return false;
+	}else if(casilla.equals(mapa[posX][posY-1])){
+		return false;
+	}else if(casilla.equals(mapa[posX+1][posY-1])){
+		return false;
+	}else if(casilla.equals(mapa[posX-1][posY])){
+		return false;
+	}else if(casilla.equals(mapa[posX+1][posY])){
+		return false;
+	}else if(casilla.equals(mapa[posX-1][posY+1])){
+		return false;
+	}else if(casilla.equals(mapa[posX][posY+1])){
+		return false;
+	}else if(casilla.equals(mapa[posX+1][posY+1])){
+		return false;
+	}else{
+		return true;
+	}
+    }
+    */
     private void colocarNumeros(Casilla[][] mapa) {
         for (int i=0; i<modelo.getMision().getColumnas(); i++)
             for (int j=0; j<modelo.getMision().getFilas(); j++)
@@ -417,7 +442,8 @@ public class Controlador extends JFrame{
         }
         if (revelados == modelo.getMision().getColumnas()*modelo.getMision().getFilas()-modelo.getMision().getNumMinas()){
             contador.parar();
-            modelo.actualizarRanking("LLL", contador.getSegundos());
+            String nombre = (String)JOptionPane.showInputDialog(null, modelo.getIdioma().getIntroduceIniciales(), modelo.getIdioma().getHasGanado(), JOptionPane.INFORMATION_MESSAGE, modelo.getMision().getImagen(),null, null);
+            modelo.actualizarRanking(nombre.substring(0, 3), contador.getSegundos());
             generarPanelRanking();
         }
     }
