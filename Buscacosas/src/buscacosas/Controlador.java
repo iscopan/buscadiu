@@ -334,6 +334,8 @@ public class Controlador extends JFrame{
         panelAyuda.add(verAyuda, BorderLayout.CENTER);
         
         JButton volver = new JButton("Volver");
+        volver.setIcon(new ImageIcon("imagenes/volver.png"));
+        volver.setContentAreaFilled(false);
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelInicio();
@@ -341,6 +343,8 @@ public class Controlador extends JFrame{
         });
         panelAyuda.add(volver, BorderLayout.SOUTH);
         
+        verAyuda.setBackground(Color.decode("#C2F7F0"));
+        panelAyuda.setBackground(Color.decode("#C2F7F0"));
         getContentPane().removeAll();
         add(panelAyuda);
         pack();
@@ -351,7 +355,9 @@ public class Controlador extends JFrame{
         
         JPanel cabecera = new JPanel(new FlowLayout(FlowLayout.LEFT));
         
-        JButton volver = new JButton("<--");
+        JButton volver = new JButton();
+        volver.setIcon(new ImageIcon("imagenes/volver.png"));
+        volver.setContentAreaFilled(false);
         cabecera.add(volver);
         volver.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -360,14 +366,21 @@ public class Controlador extends JFrame{
             }
         });
         
-       JLabel leaderBoard = new JLabel("LEADERBOARD");
-       cabecera.add(leaderBoard);
+        JLabel leaderBoard = new JLabel("RANKING");
+        Font f = leaderBoard.getFont();
+        leaderBoard.setFont(f.deriveFont(f.getStyle() | Font.BOLD));
+        cabecera.add(leaderBoard);
+        
+        
+        
         
         JPanel panelMuestraMision = new JPanel();
         Box caja = Box.createVerticalBox();
         JLabel mision = new JLabel("MISION:");
+        mision.setFont(f.deriveFont(f.getStyle() | Font.BOLD));
         mision.setAlignmentX(CENTER_ALIGNMENT);
         JLabel nombreMision = new JLabel();
+        nombreMision.setFont(f.deriveFont(f.getStyle() | Font.BOLD));
         
         switch(modelo.getMision().getNumMision()){
             case 1:
@@ -394,6 +407,11 @@ public class Controlador extends JFrame{
         caja.add(caja.createVerticalGlue());
         caja.add(imagen);
         panelMuestraMision.add(caja);
+        
+        verRanking.setBackground(Color.decode("#C2F7F0"));
+        
+        panelMuestraMision.setBackground(Color.decode("#C2F7F0"));
+        cabecera.setBackground(Color.decode("#C2F7F0"));
         
         panelRanking.add(cabecera, BorderLayout.NORTH);
         panelRanking.add(panelMuestraMision, BorderLayout.EAST);

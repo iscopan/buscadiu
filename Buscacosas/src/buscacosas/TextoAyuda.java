@@ -5,6 +5,7 @@
  */
 package buscacosas;
 
+import java.awt.Font;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JLabel;
