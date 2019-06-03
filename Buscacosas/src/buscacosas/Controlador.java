@@ -283,7 +283,7 @@ public class Controlador extends JFrame{
                                     }
                                     
                                     if(perdido == true){
-                                        generarPanelRanking();
+                                        generarPanelInicio();
                                     }
                                 }
                                 break;
