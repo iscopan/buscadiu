@@ -24,6 +24,7 @@ public class Idioma {
     private String si;
     private String no;
     private String hasGanado;
+    private String hasPerdido;
     private String introduceIniciales;
     private String aceptar;
 
@@ -57,6 +58,7 @@ public class Idioma {
         idioma.setSi("Sí");
         idioma.setNo("No");
         idioma.setHasGanado("¡Has ganado!");
+        idioma.setHasPerdido("Has perdido");
         idioma.setIntroduceIniciales("Introduce tus iniciales");
         idioma.setAceptar("Aceptar");
             
@@ -90,6 +92,7 @@ public class Idioma {
         idioma.setSi("Yes");
         idioma.setNo("No");
         idioma.setHasGanado("You win!");
+        idioma.setHasPerdido("You lost");
         idioma.setIntroduceIniciales("Enter your initials");
         idioma.setAceptar("Accept");
             
@@ -97,6 +100,14 @@ public class Idioma {
         
     }
 
+     public String getHasPerdido() {
+        return hasPerdido;
+    }
+
+    public void setHasPerdido(String hasPerdido) {
+        this.hasPerdido = hasPerdido;
+    }
+     
     public void setInfoMision1(String infoMision1) {
         this.infoMision1 = infoMision1;
     }
