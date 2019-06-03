@@ -7,6 +7,7 @@ package buscacosas;
 
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -41,6 +42,8 @@ public class Contador extends JPanel{
         icono = new JLabel(modelo.getMision().getBandera());
         numero = modelo.getMision().getNumMinas();
         numBanderas = new JLabel(" x" + numero);
+        
+        setBackground(Color.decode("#C2F7F0"));
         
         add(reloj);
         add(tiempo);
