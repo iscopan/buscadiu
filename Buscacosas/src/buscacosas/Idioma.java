@@ -35,10 +35,10 @@ public class Idioma {
         
         Idioma idioma = new Idioma();
         
-        idioma.setInfoMision1("\tDificultad: Fácil\n\tAdentrate en el amistodo prado, pero\n \t¡no pises las margaritas!");
-        idioma.setInfoMision2("\tDificultad: Media\n\tLocaliza todas las trampas que hay colocadas en\n\t el desierto en el menor tiempo posible.");
-        idioma.setInfoMision3("\tDificultad: Difícil\n\tEste misterioso pantano está\n\t repleto de fango venenoso\n\t no te despieste o caerás en él.");
-        idioma.setInfoMision4("\tDificultad: Muy difícil\n\tEl volcán activo es el mayor de los desafíos\n\t ¡anda con mucho cuidado si no quieres caer\n en la ardiente lava!");
+        idioma.setInfoMision1("  Dificultad: Fácil\n  Adentrate en el amistoso prado\n  ¡no pises las margaritas!");
+        idioma.setInfoMision2("  Dificultad: Media\n  Localiza las trampas en el desierto\n  que la momia ha colocado");
+        idioma.setInfoMision3("  Dificultad: Difícil\n  Ten cuidado con el fango venenoso\n  no te despistes o caerás en él.\n");
+        idioma.setInfoMision4("  Dificultad: Muy difícil\n  El volcán es el mayor de los desafíos\n  ¡anda con mucho cuidado para no caer en la lava!");
         idioma.setNombreMision1("El Prado Verdoso");
         idioma.setNombreMision2("El Desierto de la Momia");
         idioma.setNombreMision3("El Pantano Venenoso");
@@ -69,10 +69,10 @@ public class Idioma {
         
         Idioma idioma = new Idioma();
         
-        idioma.setInfoMision1("\tDifficult: Easy\n Enter on the frindly meadow, but\n careful with the daisies!");
-        idioma.setInfoMision2("\tDifficult: Medium\nFind all the traps\n which are placed in the desert.");
-        idioma.setInfoMision3("\tDifficult: Hard\n\tThis spooky swamp is full of toxic mud\n be careful or you will fall into it.");
-        idioma.setInfoMision4("\tDifficult: Very hard\nThe active volcan is the hardest challenge\n walk safely if you don't want \ninto burn with the lava.");
+        idioma.setInfoMision1("  Difficulty: Easy\n  Enter on the friendly meadow\n  Don't step on the daisies!");
+        idioma.setInfoMision2("  Difficulty: Medium\n  Find the traps in the desert\n  which the mummy has placed");
+        idioma.setInfoMision3("  Difficulty: Hard\n  Be careful with poisonous mud\n  Don't get lost or you will fall into it.\n");
+        idioma.setInfoMision4("  Difficulty: Very hard\n  The volcano is the biggest challenge\n  Be careful not to fall into the lava!");
         idioma.setNombreMision1("The Greenish Meadow");
         idioma.setNombreMision2("The Mummy's Desert");
         idioma.setNombreMision3("The Toxic Swamp");
