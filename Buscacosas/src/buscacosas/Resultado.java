@@ -37,4 +37,8 @@ public class Resultado{
     public void setSegundos(int segundos){
         this.segundos = segundos;
     }
+    
+    public String aString(){
+        return nommbre + "\t" + segundos;
+    }
 }

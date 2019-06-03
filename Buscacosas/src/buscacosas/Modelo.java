@@ -23,16 +23,6 @@ public class Modelo extends Observable{
     public Modelo(){
         setIdiomaEspannol();
         setMisionUno();
-        ranking = new Resultado[10];
-        ranking[0] = new Resultado("CEN", 10);
-        ranking[1] = new Resultado("JUA", 20);
-        ranking[2] = new Resultado("ISC", 30);
-        ranking[3] = new Resultado("MAN", 40);
-        ranking[4] = new Resultado("SAM", 50);
-        ranking[5] = new Resultado("PAB", 60);
-        ranking[6] = new Resultado("ISM", 70);
-        ranking[7] = new Resultado("KAL", 80);
-        ranking[8] = new Resultado("ROC", 90);
     }
     
     public void notificarObservadores(){
@@ -62,6 +52,9 @@ public class Modelo extends Observable{
         if(incluido == false){
             ranking[9] = new Resultado(nombre, tiempo);
         }
+        else{
+            
+        }
         notificarObservadores();
     }
     
@@ -90,21 +83,25 @@ public class Modelo extends Observable{
     
     public void setMisionUno(){
         mision = Mision.misionUno();
+        ranking = mision.getRanking();
         notificarObservadores();
     }
     
     public void setMisionDos(){
         mision = Mision.misionDos();
+        ranking = mision.getRanking();
         notificarObservadores();
     }
     
     public void setMisionTres(){
         mision = Mision.misionTres();
+        ranking = mision.getRanking();
         notificarObservadores();
     }
     
     public void setMisionCuatro(){
         mision = Mision.misionCuatro();
+        ranking = mision.getRanking();
         notificarObservadores();
     }
 }

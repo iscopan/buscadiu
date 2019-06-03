@@ -53,7 +53,7 @@ public class Contador extends JPanel{
                 segundos++;
             }
         };
-        t = new Timer(10, e);
+        t = new Timer(1000, e);
     }
     
     public void inicio(){
@@ -75,5 +75,9 @@ public class Contador extends JPanel{
     }
     public int getNumero(){
         return numero;
+    }
+    
+    public int getSegundos(){
+        return segundos;
     }
 }
