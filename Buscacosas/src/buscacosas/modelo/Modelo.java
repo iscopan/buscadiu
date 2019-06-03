@@ -123,11 +123,15 @@ public class Modelo extends Observable{
     }
     
     public void inicio(){
+        segundos = 0;
+        numeroBanderas = mision.getNumMinas();
         t.start();
+        notificarObservadores();
     }
     
     public void parar(){
         t.stop();
+        notificarObservadores();
     }
     
     public void quitarBandera() {
@@ -145,5 +149,15 @@ public class Modelo extends Observable{
     
     public int getSegundos(){
         return segundos;
+    }
+    
+    public void setSegundos(int segundos){
+        this.segundos = segundos;
+        notificarObservadores();
+    }
+    
+    public void setNumBanderas(int numBanderas){
+        this.numeroBanderas = numBanderas;
+        notificarObservadores();
     }
 }

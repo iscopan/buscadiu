@@ -250,6 +250,9 @@ public class Controlador extends JFrame{
         resert.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelJuego();
+                modelo.parar();
+                modelo.setSegundos(0);
+                modelo.setNumBanderas(modelo.getMision().getNumMinas());
             }
         });
         
