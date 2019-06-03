@@ -570,7 +570,8 @@ public class Controlador extends JFrame{
         if (revelados == modelo.getMision().getColumnas()*modelo.getMision().getFilas()-modelo.getMision().getNumMinas()){
             modelo.parar();
             String nombre = (String)JOptionPane.showInputDialog(null, modelo.getIdioma().getIntroduceIniciales(), modelo.getIdioma().getHasGanado(), JOptionPane.INFORMATION_MESSAGE, modelo.getMision().getImagen(),null, null);
-            modelo.actualizarRanking(nombre.substring(0, 3), modelo.getSegundos());
+            if(nombre != null)
+                modelo.actualizarRanking(nombre.substring(0, 3), modelo.getSegundos());
             generarPanelRanking();
         }
     }
