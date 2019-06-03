@@ -3,16 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/Idioma.java</file>
             <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/Controlador.java</file>
-            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/InfoMision.java</file>
-            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/ElegirMision.java</file>
-            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/Ranking.java</file>
-            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/Resultado.java</file>
-            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/TextoAyuda.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/modelo/Modelo.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/modelo/Casilla.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/vistas/Ranking.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/vistas/ElegirMision.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/modelo/Idioma.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/vistas/Contador.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/modelo/Resultado.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/vistas/TextoAyuda.java</file>
             <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/Buscacosas.java</file>
-            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/Mision.java</file>
-            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/Modelo.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/modelo/Mision.java</file>
+            <file>file:/C:/Users/GCM/Documents/Universidad/Diseño%20interfaces%20de%20usuario/Trabajo/buscadiu/Buscacosas/src/buscacosas/vistas/InfoMision.java</file>
         </group>
     </open-files>
 </project-private>

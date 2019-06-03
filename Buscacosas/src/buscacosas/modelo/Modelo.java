@@ -27,7 +27,7 @@ public class Modelo extends Observable{
 
     public Modelo(){
         setIdiomaEspannol();
-        setMisionUno();
+        setMisionDos();
         
         ActionListener e = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
