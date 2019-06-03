@@ -259,7 +259,9 @@ public class Controlador extends JFrame{
                                         colocarNumeros(mapa);
                                         iniciado = true;
                                     }
+                                    
                                     casilla.revelar();
+                                    
                                     if (casilla.getMina()){
                                         contador.parar();
                                         perder(mapa);
@@ -273,6 +275,11 @@ public class Controlador extends JFrame{
                                         }
                                         checkGanar(mapa);
                                     }
+                                    
+                                    if(casilla.getTieneBandera() == true){
+                                        contador.quitar();
+                                    }
+                                    
                                     if(perdido == true){
                                         generarPanelRanking();
                                     }
