@@ -53,6 +53,8 @@ public class Contador extends JPanel implements Observer{
     public void update(Observable o, Object arg) {
         tiempo.setText(" " + modelo.getSegundos() + "seg");
         numBanderas.setText(" x" + modelo.getNumeroBanderas());
+        reloj.setIcon(modelo.getMision().getReloj());
+        icono.setIcon(modelo.getMision().getBandera());
     }
     
 }
