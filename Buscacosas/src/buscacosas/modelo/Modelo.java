@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buscacosas;
+package buscacosas.modelo;
 
+import buscacosas.modelo.Mision;
+import buscacosas.modelo.Idioma;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
@@ -19,10 +21,21 @@ public class Modelo extends Observable{
     private Resultado[] ranking;
     private Idioma idioma;
     private Mision mision;
+    private int numeroBanderas;
+    private int segundos = 0;
+    private Timer t;
 
     public Modelo(){
         setIdiomaEspannol();
         setMisionUno();
+        
+        ActionListener e = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                segundos++;
+                notificarObservadores();
+            }
+        };
+        t = new Timer(1000, e);
     }
     
     public void notificarObservadores(){
@@ -84,24 +97,53 @@ public class Modelo extends Observable{
     public void setMisionUno(){
         mision = Mision.misionUno();
         ranking = mision.getRanking();
+        numeroBanderas = mision.getNumMinas();
         notificarObservadores();
     }
     
     public void setMisionDos(){
         mision = Mision.misionDos();
         ranking = mision.getRanking();
+        numeroBanderas = mision.getNumMinas();
         notificarObservadores();
     }
     
     public void setMisionTres(){
         mision = Mision.misionTres();
         ranking = mision.getRanking();
+        numeroBanderas = mision.getNumMinas();
         notificarObservadores();
     }
     
     public void setMisionCuatro(){
         mision = Mision.misionCuatro();
         ranking = mision.getRanking();
+        numeroBanderas = mision.getNumMinas();
         notificarObservadores();
+    }
+    
+    public void inicio(){
+        t.start();
+    }
+    
+    public void parar(){
+        t.stop();
+    }
+    
+    public void quitarBandera() {
+        numeroBanderas++;
+        notificarObservadores();
+    }
+
+    public void ponerBandera() {
+        numeroBanderas--;
+        notificarObservadores();
+    }
+    public int getNumeroBanderas(){
+        return numeroBanderas;
+    }
+    
+    public int getSegundos(){
+        return segundos;
     }
 }

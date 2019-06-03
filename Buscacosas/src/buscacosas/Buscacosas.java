@@ -7,17 +7,10 @@ package buscacosas;
 
 import javax.swing.UIManager;
 
-/**
- *
- * @author franc
- */
+
 public class Buscacosas {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // cosas porque no minas
         
         try{
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

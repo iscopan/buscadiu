@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buscacosas;
+package buscacosas.vistas;
 
+import buscacosas.modelo.Modelo;
 import java.awt.GridLayout;
 import java.util.Observable;
 import java.util.Observer;
