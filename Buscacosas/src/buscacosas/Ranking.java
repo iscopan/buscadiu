@@ -55,7 +55,7 @@ public class Ranking extends JPanel implements Observer{
     public Ranking(Modelo modelo){
         this.modelo = modelo;
         
-        setLayout(new GridLayout(10,3,10,5));
+        setLayout(new GridLayout(10,3,20,10));
         
         nombre1.setText(modelo.getRanking(0).getNombre());
         nombre2.setText(modelo.getRanking(1).getNombre());
