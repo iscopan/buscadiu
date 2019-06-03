@@ -53,7 +53,7 @@ public class Modelo extends Observable{
             ranking[9] = new Resultado(nombre, tiempo);
         }
         else{
-            
+            mision.guardarRanking(mision.getRuta());
         }
         notificarObservadores();
     }

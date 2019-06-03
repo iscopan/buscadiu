@@ -6,9 +6,13 @@
 package buscacosas;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import javax.swing.ImageIcon;
 
 /**
@@ -21,6 +25,9 @@ public class Mision {
     private int filas;
     private int columnas;
     private int numMinas;
+    private String ruta;
+
+   
 
     
     private Resultado[] ranking;
@@ -58,7 +65,8 @@ public class Mision {
         mision.setFilas(8);
         mision.setColumnas(8);
         mision.setNumMinas(8);
-        mision.setRanking("ranking/1.txt");
+        mision.setRuta("ranking/1.txt");
+        mision.setRanking(mision.getRuta());
         mision.setImagen(new ImageIcon("imagenes/Prado.png"));
         mision.setVolver(new ImageIcon("imagenes/Prado-Volver.png"));
         mision.setReiniciar(new ImageIcon("imagenes/Prado-Reiniciar.png"));
@@ -87,7 +95,8 @@ public class Mision {
         mision.setFilas(10);
         mision.setColumnas(10);
         mision.setNumMinas(10);
-        mision.setRanking("ranking/2.txt");
+        mision.setRuta("ranking/2.txt");
+        mision.setRanking(mision.getRuta());
         mision.setImagen(new ImageIcon("imagenes/Desierto.png"));
         mision.setVolver(new ImageIcon("imagenes/Desierto-Volver.png"));
         mision.setReiniciar(new ImageIcon("imagenes/Desierto-Reiniciar.png"));
@@ -116,7 +125,8 @@ public class Mision {
         mision.setFilas(15);
         mision.setColumnas(15);
         mision.setNumMinas(15);
-        mision.setRanking("ranking/3.txt");
+        mision.setRuta("ranking/3.txt");
+        mision.setRanking(mision.getRuta());
         mision.setImagen(new ImageIcon("imagenes/Pantano.png"));
         mision.setVolver(new ImageIcon("imagenes/Pantano-Volver.png"));
         mision.setReiniciar(new ImageIcon("imagenes/Pantano-Reiniciar.png"));
@@ -145,7 +155,8 @@ public class Mision {
         mision.setFilas(20);
         mision.setColumnas(20);
         mision.setNumMinas(20);
-        mision.setRanking("ranking/4.txt");
+        mision.setRuta("ranking/4.txt");
+        mision.setRanking(mision.getRuta());
         mision.setImagen(new ImageIcon("imagenes/Volcan.png"));
         mision.setVolver(new ImageIcon("imagenes/Volcan-Volver.png"));
         mision.setReiniciar(new ImageIcon("imagenes/Volcan-Reiniciar.png"));
@@ -166,6 +177,14 @@ public class Mision {
         return mision;
     }
 
+     public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+    
     public Resultado[] getRanking() {
         return ranking;
     }
@@ -353,6 +372,21 @@ public class Mision {
         } catch (Exception ex) {ex.printStackTrace();}
         temp[9] = null;
         return temp;
+    }
+     
+    public void guardarRanking(String string) {
+        try{
+            File fout = new File(string);
+            FileOutputStream fos = new FileOutputStream(fout);
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+            for (int i = 0; i < 9; i++) {
+    		bw.write(ranking[i].aString());
+		bw.newLine();
+            }
+            bw.close();
+            fos.close();
+        } catch (Exception ex) {ex.printStackTrace();}
+        
     }
 
 }
