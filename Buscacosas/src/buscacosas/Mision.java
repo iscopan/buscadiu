@@ -21,16 +21,12 @@ import javax.swing.ImageIcon;
  */
 public class Mision {
 
+    private Resultado[] ranking;
     private int numMision;
     private int filas;
     private int columnas;
     private int numMinas;
     private String ruta;
-
-   
-
-    
-    private Resultado[] ranking;
 
     private ImageIcon volver;
     private ImageIcon reiniciar;
@@ -45,14 +41,10 @@ public class Mision {
     private ImageIcon pisado6;
     private ImageIcon pisado7;
     private ImageIcon pisado8;
-
     private ImageIcon sinPisar;
     private ImageIcon reloj;
-
     private ImageIcon imagen;
     
-    
-   
     private Mision() {
 
     }
@@ -60,7 +52,6 @@ public class Mision {
     public static Mision misionUno() {
 
         Mision mision = new Mision();
-
         mision.setNumMision(1);
         mision.setFilas(8);
         mision.setColumnas(8);

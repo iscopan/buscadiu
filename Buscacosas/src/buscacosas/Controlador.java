@@ -354,9 +354,28 @@ public class Controlador extends JFrame{
         JPanel panelMuestraMision = new JPanel();
         Box caja = Box.createVerticalBox();
         JLabel mision = new JLabel("MISION:");
-        JLabel nombreMision = new JLabel("_________");
+        mision.setAlignmentX(CENTER_ALIGNMENT);
+        JLabel nombreMision = new JLabel();
+        
+        switch(modelo.getMision().getNumMision()){
+            case 1:
+                nombreMision.setText(modelo.getIdioma().getNombreMision1());
+                break;
+            case 2:
+                nombreMision.setText(modelo.getIdioma().getNombreMision2());
+                break;
+            case 3:
+                nombreMision.setText(modelo.getIdioma().getNombreMision3());
+                break;
+            case 4:
+                nombreMision.setText(modelo.getIdioma().getNombreMision4());
+                break;
+        }
+        
+        nombreMision.setAlignmentX(CENTER_ALIGNMENT);
         JButton imagen = new JButton(modelo.getMision().getImagen());
         imagen.setContentAreaFilled(false);
+        imagen.setAlignmentX(CENTER_ALIGNMENT);
         caja.add(mision);
         caja.add(caja.createVerticalGlue());
         caja.add(nombreMision);
