@@ -54,54 +54,87 @@ public class Controlador extends JFrame{
         
         gb.gridwidth = 4;
         agrega(elegirMision, gb, panelInicio, 0, 0);
+        gb.gridwidth = 1;
+        
+        JButton mision1 = new JButton();
+        JButton mision2 = new JButton();
+        JButton mision3 = new JButton();
+        JButton mision4 = new JButton();
         
         //mision1
-        gb.gridwidth = 1;
-        JButton mision1 = new JButton();
         mision1.setIcon(Mision.misionUno().getImagen());
         mision1.setMargin(new Insets(0,0,0,0));
         mision1.setContentAreaFilled(false);
         mision1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setMisionUno();
+                mision1.setMargin(new Insets(2,2,2,2));
+                mision1.setContentAreaFilled(true);
+                mision2.setMargin(new Insets(0,0,0,0));
+                mision2.setContentAreaFilled(false);
+                mision3.setMargin(new Insets(0,0,0,0));
+                mision3.setContentAreaFilled(false);
+                mision4.setMargin(new Insets(0,0,0,0));
+                mision4.setContentAreaFilled(false);
             }
         });
         agrega(mision1, gb, panelInicio, 0, 1);
         
         
         //mision2
-        JButton mision2 = new JButton();
         mision2.setIcon(Mision.misionDos().getImagen());
         mision2.setMargin(new Insets(0,0,0,0));
         mision2.setContentAreaFilled(false);
         mision2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setMisionDos();
+                mision1.setMargin(new Insets(0,0,0,0));
+                mision1.setContentAreaFilled(false);
+                mision2.setMargin(new Insets(2,2,2,2));
+                mision2.setContentAreaFilled(true);
+                mision3.setMargin(new Insets(0,0,0,0));
+                mision3.setContentAreaFilled(false);
+                mision4.setMargin(new Insets(0,0,0,0));
+                mision4.setContentAreaFilled(false);
             }
         });
         agrega(mision2, gb, panelInicio, 1, 1);
         
         
         //Mision3
-        JButton mision3 = new JButton();
         mision3.setIcon(Mision.misionTres().getImagen());
         mision3.setMargin(new Insets(0,0,0,0));
         mision3.setContentAreaFilled(false);
         mision3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setMisionTres();
+                mision1.setMargin(new Insets(0,0,0,0));
+                mision1.setContentAreaFilled(false);
+                mision2.setMargin(new Insets(0,0,0,0));
+                mision2.setContentAreaFilled(false);
+                mision3.setMargin(new Insets(2,2,2,2));
+                mision3.setContentAreaFilled(true);
+                mision4.setMargin(new Insets(0,0,0,0));
+                mision4.setContentAreaFilled(false);
             }
         });
         agrega(mision3, gb, panelInicio, 2, 1);
         
         //Mision 4
-        JButton mision4 = new JButton();
         mision4.setIcon(Mision.misionCuatro().getImagen());
         mision4.setMargin(new Insets(0,0,0,0));
         mision4.setContentAreaFilled(false);
         mision4.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setMisionCuatro();
+                mision1.setMargin(new Insets(0,0,0,0));
+                mision1.setContentAreaFilled(false);
+                mision2.setMargin(new Insets(0,0,0,0));
+                mision2.setContentAreaFilled(false);
+                mision3.setMargin(new Insets(0,0,0,0));
+                mision3.setContentAreaFilled(false);
+                mision4.setMargin(new Insets(2,2,2,2));
+                mision4.setContentAreaFilled(true);
             }
         });
         agrega(mision4, gb, panelInicio, 3, 1);
