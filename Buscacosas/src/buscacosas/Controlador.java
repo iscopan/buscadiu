@@ -5,11 +5,14 @@
  */
 package buscacosas;
 
+import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 import java.time.LocalTime;
 import java.util.Random;
 import javax.swing.*;
+
 
 /**
  *
@@ -32,6 +35,7 @@ public class Controlador extends JFrame{
     private JPanel panelAyuda;
     private JPanel panelRanking;
     
+    
     public Controlador(){
     
         modelo.addObserver(infoMision);
@@ -47,6 +51,7 @@ public class Controlador extends JFrame{
     }
     
     public void generarPanelInicio(){
+        
         
         panelInicio = new JPanel(new GridBagLayout());
         GridBagConstraints gb = new GridBagConstraints();
@@ -162,6 +167,7 @@ public class Controlador extends JFrame{
         b.add(eng);
         b.add(b.createVerticalGlue());
         panelIdiomas.add(b);
+        panelIdiomas.setBackground(Color.decode("#C2F7F0"));
         agrega(panelIdiomas, gb, panelInicio, 4, 1);
         
         gb.gridwidth = 4;
@@ -183,6 +189,7 @@ public class Controlador extends JFrame{
         gb.gridheight = 1;
         JButton ranking = new JButton();
         ranking.setIcon(new ImageIcon("imagenes/ranking.png"));
+        ranking.setBackground(Color.BLACK);
         ranking.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelRanking();
@@ -193,12 +200,15 @@ public class Controlador extends JFrame{
         gb.gridwidth = 1;
         JButton help = new JButton();
         help.setIcon(new ImageIcon("imagenes/ayuda.png"));
+        help.setContentAreaFilled(false);
         help.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelAyuda();
             }
         });
         agrega(help, gb, panelInicio, 4, 4);
+        
+        panelInicio.setBackground(Color.decode("#C2F7F0"));
         
         getContentPane().removeAll();
         add(panelInicio);

@@ -5,6 +5,7 @@
  */
 package buscacosas;
 
+import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.util.*;
 import javax.swing.*;
@@ -25,6 +26,8 @@ public class InfoMision extends JPanel implements Observer{
         info.setOpaque(false);
         info.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
+        setBackground(Color.decode("#C2F7F0"));
+        
         switch(modelo.getMision().getNumMision()){
             case 1:
                 info.setText(this.modelo.getIdioma().getInfoMision1());
