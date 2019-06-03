@@ -5,6 +5,7 @@
  */
 package buscacosas;
 
+import java.awt.Color;
 import java.util.*;
 import javax.swing.*;
 
@@ -20,6 +21,7 @@ public class ElegirMision extends JPanel implements Observer{
     public ElegirMision(Modelo modelo){
         this.modelo = modelo;
         texto = new JLabel(this.modelo.getIdioma().getEligeMision());
+        setBackground(Color.decode("#C2F7F0"));
         add(texto);
     }
     
