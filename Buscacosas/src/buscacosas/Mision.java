@@ -5,6 +5,10 @@
  */
 package buscacosas;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import javax.swing.ImageIcon;
 
 /**
@@ -17,6 +21,9 @@ public class Mision {
     private int filas;
     private int columnas;
     private int numMinas;
+
+    
+    private Resultado[] ranking;
 
     private ImageIcon volver;
     private ImageIcon reiniciar;
@@ -51,6 +58,7 @@ public class Mision {
         mision.setFilas(8);
         mision.setColumnas(8);
         mision.setNumMinas(8);
+        mision.setRanking("ranking/1.txt");
         mision.setImagen(new ImageIcon("imagenes/Prado.png"));
         mision.setVolver(new ImageIcon("imagenes/Prado-Volver.png"));
         mision.setReiniciar(new ImageIcon("imagenes/Prado-Reiniciar.png"));
@@ -79,6 +87,7 @@ public class Mision {
         mision.setFilas(10);
         mision.setColumnas(10);
         mision.setNumMinas(10);
+        mision.setRanking("ranking/2.txt");
         mision.setImagen(new ImageIcon("imagenes/Desierto.png"));
         mision.setVolver(new ImageIcon("imagenes/Desierto-Volver.png"));
         mision.setReiniciar(new ImageIcon("imagenes/Desierto-Reiniciar.png"));
@@ -107,6 +116,7 @@ public class Mision {
         mision.setFilas(15);
         mision.setColumnas(15);
         mision.setNumMinas(15);
+        mision.setRanking("ranking/3.txt");
         mision.setImagen(new ImageIcon("imagenes/Pantano.png"));
         mision.setVolver(new ImageIcon("imagenes/Pantano-Volver.png"));
         mision.setReiniciar(new ImageIcon("imagenes/Pantano-Reiniciar.png"));
@@ -135,6 +145,7 @@ public class Mision {
         mision.setFilas(20);
         mision.setColumnas(20);
         mision.setNumMinas(20);
+        mision.setRanking("ranking/4.txt");
         mision.setImagen(new ImageIcon("imagenes/Volcan.png"));
         mision.setVolver(new ImageIcon("imagenes/Volcan-Volver.png"));
         mision.setReiniciar(new ImageIcon("imagenes/Volcan-Reiniciar.png"));
@@ -155,6 +166,13 @@ public class Mision {
         return mision;
     }
 
+    public Resultado[] getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(String ruta) {
+        this.ranking = cargarRanking(ruta);
+    }
     
     public ImageIcon getPisado1() {
         return pisado1;
@@ -314,6 +332,27 @@ public class Mision {
 
     public void setReloj(ImageIcon reloj) {
         this.reloj = reloj;
+    }
+    
+     private Resultado[] cargarRanking(String ruta) {
+        Resultado[] temp = new Resultado[10];
+        try{
+            InputStream is = new FileInputStream(ruta);
+            BufferedReader buf = new BufferedReader(new InputStreamReader(is));
+            String linea;
+            linea = buf.readLine();
+            int pos = 0;
+            while(linea != null){
+                String[] datos = linea.split("\t");
+                temp[pos] = new Resultado(datos[0], Integer.parseInt(datos[1]));
+                pos++;
+                linea = buf.readLine();
+            }
+            buf.close();
+            is.close();
+        } catch (Exception ex) {ex.printStackTrace();}
+        temp[9] = null;
+        return temp;
     }
 
 }

@@ -32,8 +32,6 @@ public class Controlador extends JFrame{
     private JPanel panelAyuda;
     private JPanel panelRanking;
     
-    private int tiempo = 21;
-    
     public Controlador(){
     
         modelo.addObserver(infoMision);
@@ -241,7 +239,9 @@ public class Controlador extends JFrame{
                                         }
                                         checkGanar(mapa);
                                     }
-                                    modelo.actualizarRanking("LLL", tiempo);
+                                    if(perdido == true){
+                                        modelo.actualizarRanking("LLL", contador.getSegundos());
+                                    }
                                 }
                                 break;
                             case MouseEvent.BUTTON3:
