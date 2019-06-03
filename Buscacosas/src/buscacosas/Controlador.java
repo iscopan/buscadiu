@@ -240,7 +240,8 @@ public class Controlador extends JFrame{
                                         checkGanar(mapa);
                                     }
                                     if(perdido == true){
-                                        modelo.actualizarRanking("LLL", contador.getSegundos());
+                                        modelo.actualizarRanking("LLL", modelo.getRanking(8).getSegundos()+1);
+                                        generarPanelRanking();
                                     }
                                 }
                                 break;
@@ -407,11 +408,17 @@ public class Controlador extends JFrame{
     
     private void checkGanar(Casilla[][] mapa) {
         int revelados = 0;
-        for (int i=0; i<modelo.getMision().getColumnas(); i++)
-            for (int j=0; j<modelo.getMision().getFilas(); j++)
-                if (!mapa[i][j].esOculto())
+        for (int i=0; i<modelo.getMision().getColumnas(); i++){
+            for (int j=0; j<modelo.getMision().getFilas(); j++){
+                if (!mapa[i][j].esOculto()){
                     revelados++;
-        if (revelados == modelo.getMision().getColumnas()*modelo.getMision().getFilas()-modelo.getMision().getNumMinas())
+                }
+            }
+        }
+        if (revelados == modelo.getMision().getColumnas()*modelo.getMision().getFilas()-modelo.getMision().getNumMinas()){
             contador.parar();
+            modelo.actualizarRanking("LLL", contador.getSegundos());
+            generarPanelRanking();
+        }
     }
 }
