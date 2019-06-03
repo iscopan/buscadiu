@@ -43,6 +43,11 @@ public class Controlador extends JFrame{
         modelo.addObserver(elegirMision);
         modelo.addObserver(verAyuda);
         
+        setTitle("Fantasy Sweeper");
+        
+        Image icon = new ImageIcon(("imagenes/Logo.png")).getImage();
+        setIconImage(icon);
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setVisible(true);
@@ -248,6 +253,8 @@ public class Controlador extends JFrame{
         cabeza.add(contador, BorderLayout.CENTER);
         cabeza.add(resert, BorderLayout.EAST);
         
+        cabeza.setBackground(Color.decode("#C2F7F0"));
+        
         panelJuego.add(cabeza, BorderLayout.NORTH);
         
         JPanel panelJugable = new JPanel(new GridLayout(modelo.getMision().getColumnas(), modelo.getMision().getFilas()));
@@ -318,6 +325,8 @@ public class Controlador extends JFrame{
                 panelJugable.add(casilla);
             }
         }
+        
+        panelJugable.setBackground(Color.decode("#C2F7F0"));
         
         panelJuego.add(panelJugable, BorderLayout.CENTER);
         
