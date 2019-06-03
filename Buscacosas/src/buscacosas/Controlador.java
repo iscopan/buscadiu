@@ -380,37 +380,60 @@ public class Controlador extends JFrame{
         while (minas>0){
             int i = r.nextInt(modelo.getMision().getFilas());
             int j = r.nextInt(modelo.getMision().getColumnas());
-            if (!mapa[i][j].getMina() && !click.equals(mapa[i][j])){
+            if (!mapa[i][j].getMina() && espacioLibre(click, mapa, i, j)){
                 mapa[i][j].setMina(true);
                 minas--;
             }
         }
     }
-    /**
+
     private boolean espacioLibre(Casilla casilla, Casilla[][] mapa, int posX, int posY){
 	if(casilla.equals(mapa[posX][posY])){
-		return false;
-	}else if(casilla.equals(mapa[posX-1][posY-1])){
-		return false;
-	}else if(casilla.equals(mapa[posX][posY-1])){
-		return false;
-	}else if(casilla.equals(mapa[posX+1][posY-1])){
-		return false;
-	}else if(casilla.equals(mapa[posX-1][posY])){
-		return false;
-	}else if(casilla.equals(mapa[posX+1][posY])){
-		return false;
-	}else if(casilla.equals(mapa[posX-1][posY+1])){
-		return false;
-	}else if(casilla.equals(mapa[posX][posY+1])){
-		return false;
-	}else if(casilla.equals(mapa[posX+1][posY+1])){
-		return false;
-	}else{
-		return true;
+            return false;
 	}
+	if(posX - 1 >= 0){
+            if(casilla.equals(mapa[posX-1][posY])){
+                return false;
+            }
+            if(posY - 1 >= 0){
+    		if(casilla.equals(mapa[posX-1][posY-1])){
+                    return false;
+                }
+            }
+            if(posY + 1 < modelo.getMision().getColumnas()){
+                if(casilla.equals(mapa[posX-1][posY+1])){
+                    return false;
+                }
+            }
+	}
+	if(posX + 1 < modelo.getMision().getFilas()){
+            if(casilla.equals(mapa[posX+1][posY])){
+                return false;
+            }
+            if(posY - 1 >= 0){
+                if(casilla.equals(mapa[posX+1][posY-1])){
+                    return false;
+                }
+            }
+            if(posY + 1 < modelo.getMision().getColumnas()){
+                if(casilla.equals(mapa[posX+1][posY+1])){
+                    return false;
+                }
+            }
+	}
+	if(posY - 1 >= 0){
+            if(casilla.equals(mapa[posX][posY-1])){
+                return false;
+            }
+	}
+	if(posY + 1 < modelo.getMision().getColumnas()){
+            if(casilla.equals(mapa[posX][posY+1])){
+                return false;
+            }
+	}
+	return true;
     }
-    */
+
     private void colocarNumeros(Casilla[][] mapa) {
         for (int i=0; i<modelo.getMision().getColumnas(); i++)
             for (int j=0; j<modelo.getMision().getFilas(); j++)
