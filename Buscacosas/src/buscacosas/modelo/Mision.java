@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buscacosas;
+package buscacosas.modelo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -55,7 +55,7 @@ public class Mision {
         mision.setNumMision(1);
         mision.setFilas(8);
         mision.setColumnas(8);
-        mision.setNumMinas(8);
+        mision.setNumMinas(4);
         mision.setRuta("ranking/1.txt");
         mision.setRanking(mision.getRuta());
         mision.setImagen(new ImageIcon("imagenes/Prado.png"));
@@ -85,7 +85,7 @@ public class Mision {
         mision.setNumMision(2);
         mision.setFilas(10);
         mision.setColumnas(10);
-        mision.setNumMinas(10);
+        mision.setNumMinas(6);
         mision.setRuta("ranking/2.txt");
         mision.setRanking(mision.getRuta());
         mision.setImagen(new ImageIcon("imagenes/Desierto.png"));
@@ -115,7 +115,7 @@ public class Mision {
         mision.setNumMision(3);
         mision.setFilas(15);
         mision.setColumnas(15);
-        mision.setNumMinas(15);
+        mision.setNumMinas(20);
         mision.setRuta("ranking/3.txt");
         mision.setRanking(mision.getRuta());
         mision.setImagen(new ImageIcon("imagenes/Pantano.png"));
@@ -145,7 +145,7 @@ public class Mision {
         mision.setNumMision(4);
         mision.setFilas(20);
         mision.setColumnas(20);
-        mision.setNumMinas(20);
+        mision.setNumMinas(40);
         mision.setRuta("ranking/4.txt");
         mision.setRanking(mision.getRuta());
         mision.setImagen(new ImageIcon("imagenes/Volcan.png"));

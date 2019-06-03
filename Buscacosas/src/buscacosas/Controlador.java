@@ -5,6 +5,14 @@
  */
 package buscacosas;
 
+import buscacosas.vistas.TextoAyuda;
+import buscacosas.vistas.Ranking;
+import buscacosas.modelo.Modelo;
+import buscacosas.modelo.Mision;
+import buscacosas.vistas.InfoMision;
+import buscacosas.vistas.ElegirMision;
+import buscacosas.vistas.Contador;
+import buscacosas.modelo.Casilla;
 import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.awt.*;
 import java.awt.event.*;
@@ -14,10 +22,6 @@ import java.util.Random;
 import javax.swing.*;
 
 
-/**
- *
- * @author franc
- */
 public class Controlador extends JFrame{
     
     private boolean iniciado = false;
@@ -28,7 +32,7 @@ public class Controlador extends JFrame{
     private ElegirMision elegirMision = new ElegirMision(modelo);
     private Ranking verRanking = new Ranking(modelo);
     private TextoAyuda verAyuda = new TextoAyuda(modelo);
-    private Contador contador;
+    private Contador contador = new Contador(modelo);
     
     private JPanel panelInicio;
     private JPanel panelJuego;
@@ -42,6 +46,7 @@ public class Controlador extends JFrame{
         modelo.addObserver(verRanking);
         modelo.addObserver(elegirMision);
         modelo.addObserver(verAyuda);
+        modelo.addObserver(contador);
         
         setTitle("Fantasy Sweeper");
         
@@ -224,7 +229,6 @@ public class Controlador extends JFrame{
     public void generarPanelJuego(){
         iniciado = false;
         perdido = false;
-        contador = new Contador(modelo);
         panelJuego = new JPanel(new BorderLayout());
         
         JPanel cabeza = new JPanel(new BorderLayout());
@@ -273,7 +277,7 @@ public class Controlador extends JFrame{
                             case MouseEvent.BUTTON1:
                                 if(perdido != true){
                                     if(!iniciado){
-                                        contador.inicio();
+                                        modelo.inicio();
                                         colocarMinas(casilla, mapa);
                                         colocarNumeros(mapa);
                                         iniciado = true;
@@ -282,7 +286,7 @@ public class Controlador extends JFrame{
                                     casilla.revelar();
                                     
                                     if (casilla.getMina()){
-                                        contador.parar();
+                                        modelo.parar();
                                         perder(mapa);
                                         perdido = true;
                                         JOptionPane.showMessageDialog(null, modelo.getIdioma().getHasPerdido(), "GAME OVER", JOptionPane.OK_OPTION, modelo.getMision().getImagen());
@@ -296,7 +300,7 @@ public class Controlador extends JFrame{
                                     }
                                     
                                     if(casilla.getTieneBandera() == true){
-                                        contador.quitar();
+                                        modelo.quitarBandera();
                                     }
                                     
                                     if(perdido == true){
@@ -308,13 +312,12 @@ public class Controlador extends JFrame{
                                 if(casilla.esOculto()==true){
                                     if(casilla.getTieneBandera() == true){
                                         casilla.quitarBandera();
-                                        contador.quitar();
+                                        modelo.quitarBandera();
 
                                     }
-                                    else if(contador.getNumero()>0){
+                                    else if(modelo.getNumeroBanderas()>0){
                                         casilla.bandera();
-                                        contador.poner();
-
+                                        modelo.ponerBandera();
                                     }
                                 }
                                 break;
@@ -562,9 +565,9 @@ public class Controlador extends JFrame{
             }
         }
         if (revelados == modelo.getMision().getColumnas()*modelo.getMision().getFilas()-modelo.getMision().getNumMinas()){
-            contador.parar();
+            modelo.parar();
             String nombre = (String)JOptionPane.showInputDialog(null, modelo.getIdioma().getIntroduceIniciales(), modelo.getIdioma().getHasGanado(), JOptionPane.INFORMATION_MESSAGE, modelo.getMision().getImagen(),null, null);
-            modelo.actualizarRanking(nombre.substring(0, 3), contador.getSegundos());
+            modelo.actualizarRanking(nombre.substring(0, 3), modelo.getSegundos());
             generarPanelRanking();
         }
     }
