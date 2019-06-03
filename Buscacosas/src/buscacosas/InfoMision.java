@@ -20,7 +20,7 @@ public class InfoMision extends JPanel implements Observer{
     
     public InfoMision(Modelo modelo){
         this.modelo = modelo;
-        info = new JTextArea();
+        info = new JTextArea(4, 50);
         info.setEditable(false);
         info.setOpaque(false);
         info.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);

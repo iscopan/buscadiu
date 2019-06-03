@@ -63,8 +63,8 @@ public class Controlador extends JFrame{
         
         //mision1
         mision1.setIcon(Mision.misionUno().getImagen());
-        mision1.setMargin(new Insets(0,0,0,0));
-        mision1.setContentAreaFilled(false);
+        mision1.setMargin(new Insets(2,2,2,2));
+        mision1.setContentAreaFilled(true);
         mision1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 modelo.setMisionUno();
@@ -181,7 +181,8 @@ public class Controlador extends JFrame{
         
         gb.gridwidth = 4;
         gb.gridheight = 1;
-        JButton ranking = new JButton("Ranking");
+        JButton ranking = new JButton();
+        ranking.setIcon(new ImageIcon("imagenes/ranking.png"));
         ranking.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelRanking();
@@ -190,7 +191,8 @@ public class Controlador extends JFrame{
         agrega(ranking, gb, panelInicio, 0, 4);
         
         gb.gridwidth = 1;
-        JButton help = new JButton("?");
+        JButton help = new JButton();
+        help.setIcon(new ImageIcon("imagenes/ayuda.png"));
         help.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 generarPanelAyuda();
